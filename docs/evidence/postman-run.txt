@@ -1,0 +1,139 @@
+
+> phase2-backend-api@1.0.0 test:postman
+> node scripts/run-postman.js
+
+newman
+
+Phase 2 Backend API
+
+→ 01 Database health
+  GET http://127.0.0.1:5000/api/health [200 OK, 316B, 137ms]
+  √  HTTP 200
+  √  JSON response
+  √  MongoDB connected
+
+→ 02 Create user
+  POST http://127.0.0.1:5000/api/users [201 Created, 478B, 118ms]
+  √  HTTP 201
+  √  JSON response
+  √  User created
+  √  Password hidden
+
+→ 03 List users
+  GET http://127.0.0.1:5000/api/users [200 OK, 475B, 18ms]
+  √  HTTP 200
+  √  JSON response
+  √  Created user listed
+
+→ 04 Read user by ID
+  GET http://127.0.0.1:5000/api/users/6af6c0b9901d94461bd57a6b [200 OK, 473B, 14ms]
+  √  HTTP 200
+  √  JSON response
+  √  Correct user
+
+→ 05 Update user
+  PUT http://127.0.0.1:5000/api/users/6af6c0b9901d94461bd57a6b [200 OK, 477B, 21ms]
+  √  HTTP 200
+  √  JSON response
+  √  Name updated
+
+→ 06 Confirm stored user update
+  GET http://127.0.0.1:5000/api/users/6af6c0b9901d94461bd57a6b [200 OK, 477B, 11ms]
+  √  HTTP 200
+  √  JSON response
+  √  Update persisted
+
+→ 07 Reject duplicate email
+  POST http://127.0.0.1:5000/api/users [409 Conflict, 318B, 105ms]
+  √  HTTP 409
+  √  JSON response
+
+→ 08 Reject invalid user
+  POST http://127.0.0.1:5000/api/users [400 Bad Request, 339B, 8ms]
+  √  HTTP 400
+  √  JSON response
+
+→ 09 Delete user
+  DELETE http://127.0.0.1:5000/api/users/6af6c0b9901d94461bd57a6b [200 OK, 336B, 8ms]
+  √  HTTP 200
+  √  JSON response
+  √  Deletion acknowledged
+
+→ 10 Confirm user deleted
+  GET http://127.0.0.1:5000/api/users/6af6c0b9901d94461bd57a6b [404 Not Found, 313B, 10ms]
+  √  HTTP 404
+  √  JSON response
+
+→ 11 Create product
+  POST http://127.0.0.1:5000/api/products [201 Created, 485B, 13ms]
+  √  HTTP 201
+  √  JSON response
+  √  Product created
+
+→ 12 List products
+  GET http://127.0.0.1:5000/api/products [200 OK, 482B, 9ms]
+  √  HTTP 200
+  √  JSON response
+  √  Created product listed
+
+→ 13 Read product by ID
+  GET http://127.0.0.1:5000/api/products/6af6c0ba901d94461bd57a6d [200 OK, 480B, 15ms]
+  √  HTTP 200
+  √  JSON response
+
+→ 14 Update product
+  PUT http://127.0.0.1:5000/api/products/6af6c0ba901d94461bd57a6d [200 OK, 477B, 8ms]
+  √  HTTP 200
+  √  JSON response
+  √  Product updated
+
+→ 15 Confirm stored product update
+  GET http://127.0.0.1:5000/api/products/6af6c0ba901d94461bd57a6d [200 OK, 477B, 12ms]
+  √  HTTP 200
+  √  JSON response
+  √  Update persisted
+
+→ 16 Reject negative price
+  POST http://127.0.0.1:5000/api/products [400 Bad Request, 423B, 4ms]
+  √  HTTP 400
+  √  JSON response
+
+→ 17 Delete product
+  DELETE http://127.0.0.1:5000/api/products/6af6c0ba901d94461bd57a6d [200 OK, 339B, 10ms]
+  √  HTTP 200
+  √  JSON response
+
+→ 18 Confirm product deleted
+  GET http://127.0.0.1:5000/api/products/6af6c0ba901d94461bd57a6d [404 Not Found, 316B, 6ms]
+  √  HTTP 404
+  √  JSON response
+
+→ 19 Reject malformed ID
+  GET http://127.0.0.1:5000/api/users/not-an-id [400 Bad Request, 320B, 3ms]
+  √  HTTP 400
+  √  JSON response
+
+→ 20 Reject unknown route
+  GET http://127.0.0.1:5000/api/unknown [404 Not Found, 314B, 3ms]
+  √  HTTP 404
+  √  JSON response
+
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │                20 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                20 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │                52 │                0 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 2.4s                                       │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 2.48kB (approx)                           │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 26ms [min: 3ms, max: 137ms, s.d.: 39ms] │
+└────────────────────────────────────────────────────────────────┘

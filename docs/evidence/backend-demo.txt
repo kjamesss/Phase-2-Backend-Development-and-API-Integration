@@ -1,0 +1,132 @@
+
+> phase2-backend-api@1.0.0 demo
+> node scripts/demo.js
+
+Phase 2 Backend Demonstration
+Actual HTTP requests to http://127.0.0.1:5000
+Run time: 2026-11-13T07:54:45.004Z
+
+GET /api/health
+HTTP 200
+{
+  "status": "ok",
+  "database": "connected"
+}
+
+POST /api/users
+Request: {
+  "name": "Demo User",
+  "email": "demo.1794556485324@example.test",
+  "password": "LabPass123!",
+  "role": "user"
+}
+HTTP 201
+{
+  "name": "Demo User",
+  "email": "demo.1794556485324@example.test",
+  "role": "user",
+  "_id": "6af6c245901d94461bd57a6f",
+  "createdAt": "2026-11-13T07:54:45.454Z",
+  "updatedAt": "2026-11-13T07:54:45.454Z"
+}
+
+GET /api/users/6af6c245901d94461bd57a6f
+HTTP 200
+{
+  "_id": "6af6c245901d94461bd57a6f",
+  "name": "Demo User",
+  "email": "demo.1794556485324@example.test",
+  "role": "user",
+  "createdAt": "2026-11-13T07:54:45.454Z",
+  "updatedAt": "2026-11-13T07:54:45.454Z"
+}
+
+PUT /api/users/6af6c245901d94461bd57a6f
+Request: {
+  "name": "Updated Demo User"
+}
+HTTP 200
+{
+  "_id": "6af6c245901d94461bd57a6f",
+  "name": "Updated Demo User",
+  "email": "demo.1794556485324@example.test",
+  "role": "user",
+  "createdAt": "2026-11-13T07:54:45.454Z",
+  "updatedAt": "2026-11-13T07:54:45.543Z"
+}
+
+DELETE /api/users/6af6c245901d94461bd57a6f
+HTTP 200
+{
+  "message": "User deleted",
+  "id": "6af6c245901d94461bd57a6f"
+}
+
+GET /api/users/6af6c245901d94461bd57a6f
+HTTP 404
+{
+  "message": "User not found"
+}
+
+POST /api/products
+Request: {
+  "name": "Demo Notebook",
+  "price": 45.5,
+  "stock": 10
+}
+HTTP 201
+{
+  "name": "Demo Notebook",
+  "description": "",
+  "price": 45.5,
+  "stock": 10,
+  "_id": "6af6c245901d94461bd57a70",
+  "createdAt": "2026-11-13T07:54:45.609Z",
+  "updatedAt": "2026-11-13T07:54:45.609Z",
+  "__v": 0
+}
+
+GET /api/products/6af6c245901d94461bd57a70
+HTTP 200
+{
+  "_id": "6af6c245901d94461bd57a70",
+  "name": "Demo Notebook",
+  "description": "",
+  "price": 45.5,
+  "stock": 10,
+  "createdAt": "2026-11-13T07:54:45.609Z",
+  "updatedAt": "2026-11-13T07:54:45.609Z",
+  "__v": 0
+}
+
+PUT /api/products/6af6c245901d94461bd57a70
+Request: {
+  "price": 50,
+  "stock": 8
+}
+HTTP 200
+{
+  "_id": "6af6c245901d94461bd57a70",
+  "name": "Demo Notebook",
+  "description": "",
+  "price": 50,
+  "stock": 8,
+  "createdAt": "2026-11-13T07:54:45.609Z",
+  "updatedAt": "2026-11-13T07:54:45.640Z",
+  "__v": 0
+}
+
+DELETE /api/products/6af6c245901d94461bd57a70
+HTTP 200
+{
+  "message": "Product deleted",
+  "id": "6af6c245901d94461bd57a70"
+}
+
+GET /api/products/6af6c245901d94461bd57a70
+HTTP 404
+{
+  "message": "Product not found"
+}
+
+Demonstration complete. Both sample records were deleted.

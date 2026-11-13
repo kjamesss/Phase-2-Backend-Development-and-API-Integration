@@ -7,6 +7,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "serve": "node server.js",
+    "demo": "node scripts/demo.js",
     "db:local": "node scripts/local-db.js",
     "test": "node --test --test-concurrency=1 tests/*.test.js",
     "test:postman": "node scripts/run-postman.js"
