@@ -28,7 +28,8 @@ newman.run({
       .replace('<body class="theme-dark">', '<body class="theme-light">')
       .replace(/setTheme\('theme-dark'\)/g, "setTheme('theme-light')")
       .replace(/<div class="container">\s*<label>Light<\/label>[\s\S]*?<label>Dark<\/label>\s*<\/div>/, '')
-      .replace("document.getElementById('slider').checked = sliderChecked;", '');
+      .replace("document.getElementById('slider').checked = sliderChecked;", '')
+      .replace(/^[ \t]+$/gm, '');
     fs.writeFileSync(reportPath, html);
   }
 });

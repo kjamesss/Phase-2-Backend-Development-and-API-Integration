@@ -438,7 +438,7 @@ body.theme-light code {
 
 </style>
 </head>
-<body class="theme-dark">
+<body class="theme-light">
 <script>
     function setTheme(themeName) {
         localStorage.setItem('theme', themeName);
@@ -447,21 +447,14 @@ body.theme-light code {
 
     function toggleTheme() {
         if (localStorage.getItem('theme') === 'theme-light') {
-            setTheme('theme-dark');
+            setTheme('theme-light');
         } else {
             setTheme('theme-light');
         }
     }
 </script>
   <div class="container">
-        <div class="container">
-            <label>Light</label>
-            <label id="switch" class="switch">
-                <input type="checkbox" onchange="toggleTheme()" id="slider">
-                <span class="slider round"></span>
-            </label>
-            <label>Dark</label>
-        </div>
+
         <div class="card">
         <div class="card-header">
             <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
@@ -539,7 +532,7 @@ body.theme-light code {
                 <div class="card-body">
                 <h5 class="card-title text-uppercase text-white text-center bg-info">File Information</h5>
                 <span><i class="fas fa-file-code"></i></span><strong> Collection:</strong> Phase 2 Backend API<br>
-                
+
                 <span><i class="fas fa-file-code"></i></span><strong> Environment:</strong> Phase 2 Local<br>
                 </div>
             </div>
@@ -643,7 +636,7 @@ body.theme-light code {
 
     <div class="text-uppercase" id="execution-menu">
         <h5>1 Iteration available to view</h5>
-        
+
         <nav class="table-responsive">
         <ul class="nav single-line-tabs" id="iterationList">
         </ul>
@@ -3212,11 +3205,11 @@ body.theme-light code {
     setTheme('theme-light');
     sliderChecked = false;
   } else {
-    setTheme('theme-dark');
+    setTheme('theme-light');
     sliderChecked = true;
   }
   $(document).ready( function () {
-    document.getElementById('slider').checked = sliderChecked;
+
   });
 })();
 </script>
@@ -3789,9 +3782,9 @@ window.onload = function () {
     elem.style.display = 'block';
   });
 
-   
+
   let totalIterations = 1;
-   
+
 
   let menu = document.querySelector('#execution-menu .nav');
 

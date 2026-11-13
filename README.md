@@ -20,6 +20,8 @@ Copy-Item .env.example .env
 npm run db:local
 # Terminal 2: from backend
 npm start
+# Terminal 3: demonstrate HTTP requests and JSON responses
+npm run demo
 ```
 
 For macOS or Linux, use `cp .env.example .env`. If MongoDB is already running, skip `db:local`. MongoDB Atlas also works by setting `MONGO_URI` in the ignored `.env` file.

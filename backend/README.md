@@ -122,6 +122,9 @@ Example POST `/api/products`:
 ## Test the API
 
 ```powershell
+# Demonstrate actual requests and JSON output without a frontend
+npm run demo
+
 # Database-backed integration tests use a separate temporary database
 npm test
 
