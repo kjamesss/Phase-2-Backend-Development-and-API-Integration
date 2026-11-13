@@ -35,6 +35,9 @@ For macOS or Linux, use `cp .env.example .env`. If MongoDB is already running, s
 - [Testing evidence](docs/evidence)
 - [Rubric evidence checklist](docs/Rubric_Checklist.md)
 - [Commit record](docs/GitHub_Commits.md)
+- [Class presentation](docs/Phase_2_Class_Presentation.pptx) and [PDF slides](docs/Phase_2_Presentation_Slides.pdf)
+- [GitHub and live demo guide](docs/Presentation_Guide.md)
+- [Presentation speaker notes](docs/Presentation_Speaker_Notes.md)
 
 ## Group roles
 
