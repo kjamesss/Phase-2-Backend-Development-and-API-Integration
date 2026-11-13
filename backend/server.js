@@ -22,8 +22,9 @@ async function start() {
   process.once('SIGTERM', shutdown);
 }
 
-start().catch((error) => {
+start().catch(async (error) => {
   console.error(error.message.startsWith('MONGO_URI')
     ? error.message : 'Startup failed. Check MongoDB availability and backend/.env.');
+  await mongoose.disconnect();
   process.exitCode = 1;
 });
