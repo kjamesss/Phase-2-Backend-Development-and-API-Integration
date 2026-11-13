@@ -1,0 +1,129 @@
+[
+  {
+    "method": "GET",
+    "path": "/api/health",
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "database": "connected"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/users",
+    "status": 201,
+    "body": {
+      "name": "Demo User",
+      "email": "demo.1794560968420@example.test",
+      "role": "user",
+      "_id": "6af6d3c802ce658be0889dae",
+      "createdAt": "2026-11-13T09:09:28.478Z",
+      "updatedAt": "2026-11-13T09:09:28.478Z"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/users/6af6d3c802ce658be0889dae",
+    "status": 200,
+    "body": {
+      "_id": "6af6d3c802ce658be0889dae",
+      "name": "Demo User",
+      "email": "demo.1794560968420@example.test",
+      "role": "user",
+      "createdAt": "2026-11-13T09:09:28.478Z",
+      "updatedAt": "2026-11-13T09:09:28.478Z"
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/api/users/6af6d3c802ce658be0889dae",
+    "status": 200,
+    "body": {
+      "_id": "6af6d3c802ce658be0889dae",
+      "name": "Updated Demo User",
+      "email": "demo.1794560968420@example.test",
+      "role": "user",
+      "createdAt": "2026-11-13T09:09:28.478Z",
+      "updatedAt": "2026-11-13T09:09:28.501Z"
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/users/6af6d3c802ce658be0889dae",
+    "status": 200,
+    "body": {
+      "message": "User deleted",
+      "id": "6af6d3c802ce658be0889dae"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/users/6af6d3c802ce658be0889dae",
+    "status": 404,
+    "body": {
+      "message": "User not found"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/products",
+    "status": 201,
+    "body": {
+      "name": "Demo Notebook",
+      "description": "",
+      "price": 45.5,
+      "stock": 10,
+      "_id": "6af6d3c802ce658be0889daf",
+      "createdAt": "2026-11-13T09:09:28.521Z",
+      "updatedAt": "2026-11-13T09:09:28.521Z",
+      "__v": 0
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/products/6af6d3c802ce658be0889daf",
+    "status": 200,
+    "body": {
+      "_id": "6af6d3c802ce658be0889daf",
+      "name": "Demo Notebook",
+      "description": "",
+      "price": 45.5,
+      "stock": 10,
+      "createdAt": "2026-11-13T09:09:28.521Z",
+      "updatedAt": "2026-11-13T09:09:28.521Z",
+      "__v": 0
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/api/products/6af6d3c802ce658be0889daf",
+    "status": 200,
+    "body": {
+      "_id": "6af6d3c802ce658be0889daf",
+      "name": "Demo Notebook",
+      "description": "",
+      "price": 50,
+      "stock": 8,
+      "createdAt": "2026-11-13T09:09:28.521Z",
+      "updatedAt": "2026-11-13T09:09:28.534Z",
+      "__v": 0
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/products/6af6d3c802ce658be0889daf",
+    "status": 200,
+    "body": {
+      "message": "Product deleted",
+      "id": "6af6d3c802ce658be0889daf"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/products/6af6d3c802ce658be0889daf",
+    "status": 404,
+    "body": {
+      "message": "Product not found"
+    }
+  }
+]

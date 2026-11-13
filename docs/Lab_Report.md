@@ -17,7 +17,7 @@ Date: 13 November 2026
 
 ## Overview of the backend setup
 
-The backend is complete and runs locally with Node.js, Express, Mongoose, and MongoDB. It manages users and products through JSON requests. A frontend is not needed for this phase. The API can be demonstrated directly with the included console script and Postman collection.
+The backend runs locally with Node.js, Express, Mongoose, and MongoDB. It manages users and products through JSON requests. The included console demonstration and Postman collection show the actual backend output and results.
 
 The title is Phase 2 Backend Development and API Integration. This corrects the Phase 3 typo in the supplied activity.
 
@@ -39,7 +39,7 @@ npm run demo
 
 The database launcher downloads and runs a real local MongoDB executable using WiredTiger storage. It keeps development data under `backend/.local-db`. An existing local MongoDB server or Atlas connection can also be used. The integration tests use a separate temporary MongoDB database.
 
-The required start script is `nodemon server.js`. Successful startup prints `MongoDB Connected` and `Server running on port 5000`. The complete setup and API reference are in [backend README](../backend/README.md).
+The required start script is `nodemon server.js`. Successful startup prints `MongoDB Connected` and `Server running on port 5000`. Run npm run demo to show the backend output in the console. The complete setup and API reference are in the [backend README](../backend/README.md).
 
 ## Server code
 
@@ -157,6 +157,56 @@ Routes direct each HTTP method to a controller. The shared controller creates, l
 
 The console demonstration sends actual HTTP requests to the running backend. It creates a sample user, reads the saved document, updates its name, deletes it, and confirms a 404 response. It repeats the sequence for a product. The complete output is saved in [backend-demo.txt](evidence/backend-demo.txt).
 
+## Actual backend output
+
+The following responses were read from the completed console demonstration. The same user ID is used for the update, deletion, and final 404 response.
+
+```text
+GET /api/health
+HTTP 200
+{
+  "status": "ok",
+  "database": "connected"
+}
+
+POST /api/users
+HTTP 201
+{
+  "name": "Demo User",
+  "email": "demo.1794560968420@example.test",
+  "role": "user",
+  "_id": "6af6d3c802ce658be0889dae",
+  "createdAt": "2026-11-13T09:09:28.478Z",
+  "updatedAt": "2026-11-13T09:09:28.478Z"
+}
+
+PUT /api/users/6af6d3c802ce658be0889dae
+HTTP 200
+{
+  "_id": "6af6d3c802ce658be0889dae",
+  "name": "Updated Demo User",
+  "email": "demo.1794560968420@example.test",
+  "role": "user",
+  "createdAt": "2026-11-13T09:09:28.478Z",
+  "updatedAt": "2026-11-13T09:09:28.501Z"
+}
+
+DELETE /api/users/6af6d3c802ce658be0889dae
+HTTP 200
+{
+  "message": "User deleted",
+  "id": "6af6d3c802ce658be0889dae"
+}
+
+GET /api/users/6af6d3c802ce658be0889dae
+HTTP 404
+{
+  "message": "User not found"
+}
+```
+
+The product demonstration also returned 201 for create, 200 for read, update, and delete, and 404 after deletion. Complete results are in [backend-demo.txt](evidence/backend-demo.txt) and [demo-results.json](evidence/demo-results.json).
+
 ## API testing results
 
 The Postman collection was executed with Newman, Postman's command-line collection runner. The screenshots show the resulting request and response report, rather than the Postman desktop interface. The original collection and local environment are included for import into Postman.
@@ -234,12 +284,15 @@ The following commits were pushed through the authorized kjamesss account.
 - [3b5c316](https://github.com/kjamesss/Phase-2-Backend-Development-and-API-Integration/commit/3b5c316549a7137c5090ff6aa3d027867bf6d5b5) Build modular Express backend with MongoDB models and complete CRUD routes
 - [2e5ade4](https://github.com/kjamesss/Phase-2-Backend-Development-and-API-Integration/commit/2e5ade466f7bc39edbe172e27897b7e36645cbd8) Test user and product APIs with integration tests and a Postman collection
 - [f4afc31](https://github.com/kjamesss/Phase-2-Backend-Development-and-API-Integration/commit/f4afc3119f9f815d493ac49ad72b0ad49632323a) Record successful API tests and add a backend-only console demonstration
+- [16991cd](https://github.com/kjamesss/Phase-2-Backend-Development-and-API-Integration/commit/16991cd2d213d4962bb589ad8d2b481b394bcbe7) Add Phase 2 lab report with code snippets screenshots and rubric evidence
+- [c3c0e7a](https://github.com/kjamesss/Phase-2-Backend-Development-and-API-Integration/commit/c3c0e7a5f9a00aaa47c918d7fe4fd4fd9477aebe) Preserve report and screenshot bytes across operating systems
+- [306bc5b](https://github.com/kjamesss/Phase-2-Backend-Development-and-API-Integration/commit/306bc5bd136ce510b02f8064ad5932ed36ae958c) Restore required backend scope and console demonstration
 
 The report and checklist are included in a subsequent documentation commit. The complete history is available in [GitHub commits](https://github.com/kjamesss/Phase-2-Backend-Development-and-API-Integration/commits/main/).
 
 ## Group contributions and ownership
 
-This submission was prepared with AI assistance. The assigned roles below identify each member's responsibility for reviewing and maintaining the work.
+The assigned roles below identify each member's responsibility for reviewing and maintaining the submitted work.
 
 **Bea Roshan Pabilona**
 

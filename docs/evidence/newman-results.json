@@ -2,7 +2,7 @@
   "collection": {
     "item": [
       {
-        "id": "a227f3d8-1aee-4065-8d65-ad33278cffb0",
+        "id": "0f966458-99c2-4630-b3f6-2faab8eb03cb",
         "name": "01 Database health",
         "request": {
           "url": {
@@ -23,20 +23,20 @@
           {
             "listen": "test",
             "script": {
-              "id": "20ff8001-38bb-4914-af60-e0f1dbc0dde1",
+              "id": "60d8f612-5e92-4478-b82f-3577e008dbe2",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);",
                 "pm.test('MongoDB connected', () => pm.expect(pm.response.json().database).to.eql('connected'));"
               ],
-              "_lastExecutionId": "1c7b685f-55d7-474d-b263-30b6eaf36596"
+              "_lastExecutionId": "fcf417fe-4201-4e7d-b14a-867a0e8a3b81"
             }
           }
         ]
       },
       {
-        "id": "e00fb58e-5de9-47e5-8f0e-055c70ba7c05",
+        "id": "81ad69f4-3082-484a-8001-57032102f0dc",
         "name": "02 Create user",
         "request": {
           "url": {
@@ -72,18 +72,18 @@
           {
             "listen": "prerequest",
             "script": {
-              "id": "b542a50f-ed56-42fa-b9fe-078fe3453113",
+              "id": "33de8167-78da-413f-8222-875d40f28f7a",
               "type": "text/javascript",
               "exec": [
                 "pm.environment.set('runId', Date.now().toString());"
               ],
-              "_lastExecutionId": "cf6525cf-7253-4189-88e7-a76e83dfdf62"
+              "_lastExecutionId": "e983e1fe-3fa6-4dfe-8a11-a6028996e187"
             }
           },
           {
             "listen": "test",
             "script": {
-              "id": "589f984a-f181-48b2-b31f-4bd27609ab7d",
+              "id": "fdd2ce03-4edb-4ca2-a4de-c354f9b3de0b",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
@@ -92,13 +92,13 @@
                 "pm.test('User created', () => pm.expect(pm.response.json().name).to.eql('API Lab User'));",
                 "pm.test('Password hidden', () => pm.expect(pm.response.json()).not.to.have.property('password'));"
               ],
-              "_lastExecutionId": "cb100a96-d756-47ef-9c35-1a03cb863b0f"
+              "_lastExecutionId": "8f554312-e4a8-4809-9124-e3ba333a01eb"
             }
           }
         ]
       },
       {
-        "id": "9dc779f8-7428-46d3-8133-77995b486d3e",
+        "id": "1ca22b1f-a038-4782-94cf-5df61015d170",
         "name": "03 List users",
         "request": {
           "url": {
@@ -119,20 +119,20 @@
           {
             "listen": "test",
             "script": {
-              "id": "37264403-f635-4548-8cf5-c52e3149e2b5",
+              "id": "3e25fae2-84c4-4a38-a304-9fc394651f0c",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);",
                 "pm.test('Created user listed', () => pm.expect(pm.response.json().some(x => x._id === pm.environment.get('userId'))).to.be.true);"
               ],
-              "_lastExecutionId": "cb0de933-77a3-4b87-87be-421933288c28"
+              "_lastExecutionId": "577a763a-738e-44be-90e0-3d524965385a"
             }
           }
         ]
       },
       {
-        "id": "0050b7f3-52e8-4481-8138-7974af943f9a",
+        "id": "0645dcba-40f3-4c48-8472-4c04ff5d5104",
         "name": "04 Read user by ID",
         "request": {
           "url": {
@@ -154,20 +154,20 @@
           {
             "listen": "test",
             "script": {
-              "id": "71c49737-6ca8-4579-b58f-3fae469ef5c2",
+              "id": "c790182e-93ef-49b3-b532-ca2422aaa179",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);",
                 "pm.test('Correct user', () => pm.expect(pm.response.json()._id).to.eql(pm.environment.get('userId')));"
               ],
-              "_lastExecutionId": "2c4e0b4c-187e-4c20-96f1-43fa11592164"
+              "_lastExecutionId": "3a66e72a-d2f5-4251-8d02-3e9b45bbefbd"
             }
           }
         ]
       },
       {
-        "id": "21e7dbe4-116d-4745-881a-68527f588436",
+        "id": "770ad278-4a02-4906-89fd-e5e02bea7241",
         "name": "05 Update user",
         "request": {
           "url": {
@@ -204,20 +204,20 @@
           {
             "listen": "test",
             "script": {
-              "id": "543360ec-c1ee-42f2-9cf1-92726f3c0085",
+              "id": "d5a6437f-1094-4326-b626-3357575714da",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);",
                 "pm.test('Name updated', () => pm.expect(pm.response.json().name).to.eql('Updated Lab User'));"
               ],
-              "_lastExecutionId": "29333eee-e8c0-476b-95aa-b039650f01c3"
+              "_lastExecutionId": "88d65d2a-9fe4-4d04-a6c0-d8a756e992d0"
             }
           }
         ]
       },
       {
-        "id": "f07e7037-add7-4981-86b7-e6c324611e18",
+        "id": "5cbfbefb-f6f7-42ea-98eb-6f945f09fbab",
         "name": "06 Confirm stored user update",
         "request": {
           "url": {
@@ -239,20 +239,20 @@
           {
             "listen": "test",
             "script": {
-              "id": "b4295818-410b-44e5-a081-c8f42b73b507",
+              "id": "834d8817-a455-4ffa-b021-f70e7ee0d98d",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);",
                 "pm.test('Update persisted', () => pm.expect(pm.response.json().name).to.eql('Updated Lab User'));"
               ],
-              "_lastExecutionId": "71395df5-0914-482d-862d-8f1f9577e2b3"
+              "_lastExecutionId": "3349a2e1-9a18-497f-b7a1-67ed1df5a21d"
             }
           }
         ]
       },
       {
-        "id": "687694b5-00c0-4c7a-8d6e-5d86913d7875",
+        "id": "b3ec5027-cef5-4959-b427-8d4ffd776e19",
         "name": "07 Reject duplicate email",
         "request": {
           "url": {
@@ -288,19 +288,19 @@
           {
             "listen": "test",
             "script": {
-              "id": "64d02cfa-5b24-4cb4-9d46-6fb56e6ac53d",
+              "id": "442e5b02-a681-4d8d-b60f-9ed6a6903e16",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 409', () => pm.response.to.have.status(409));",
                 "pm.test('JSON response', () => pm.response.to.be.json);"
               ],
-              "_lastExecutionId": "98cfc9ff-7308-49fa-8ace-5244410b0aa2"
+              "_lastExecutionId": "99420f6c-199b-46a4-a52f-7c0ddf572cef"
             }
           }
         ]
       },
       {
-        "id": "b7940e51-904a-4039-a9b9-5d668baa6a1d",
+        "id": "9c048033-34af-421e-a094-dcab1cb89b7e",
         "name": "08 Reject invalid user",
         "request": {
           "url": {
@@ -336,19 +336,19 @@
           {
             "listen": "test",
             "script": {
-              "id": "10ccf5c0-3671-497c-afc6-c0e0d92c216d",
+              "id": "c5f492ab-61a4-41e7-829b-e152afb7818e",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
                 "pm.test('JSON response', () => pm.response.to.be.json);"
               ],
-              "_lastExecutionId": "92ffb8b8-6425-4e2c-a358-67e24a7707ac"
+              "_lastExecutionId": "7803fd80-c4da-4a8c-8602-0e8ea70a50f8"
             }
           }
         ]
       },
       {
-        "id": "a365b2a5-ce40-4966-b201-d3b4a871c258",
+        "id": "b61ab263-1513-43b3-9cde-d6fdaa4e1924",
         "name": "09 Delete user",
         "request": {
           "url": {
@@ -370,20 +370,20 @@
           {
             "listen": "test",
             "script": {
-              "id": "80b3a8b3-67d6-493d-bcf4-2550671f0fb5",
+              "id": "ba13d9ce-3524-4d73-af98-e8a28484091a",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);",
                 "pm.test('Deletion acknowledged', () => pm.expect(pm.response.json().message).to.eql('User deleted'));"
               ],
-              "_lastExecutionId": "e54a8507-1456-4c08-beb0-2b584232cacb"
+              "_lastExecutionId": "16acf4c3-bd92-45e4-8b29-1fda8028a4fb"
             }
           }
         ]
       },
       {
-        "id": "6571c64e-2261-44a7-a529-56d2f01be49b",
+        "id": "6d2c338b-3842-45ac-a787-15a8cd92077b",
         "name": "10 Confirm user deleted",
         "request": {
           "url": {
@@ -405,19 +405,19 @@
           {
             "listen": "test",
             "script": {
-              "id": "ef798835-9aa5-4afe-baaa-3597a5ac1c20",
+              "id": "0ed1311c-fb18-48a8-8091-54be60883ef4",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 404', () => pm.response.to.have.status(404));",
                 "pm.test('JSON response', () => pm.response.to.be.json);"
               ],
-              "_lastExecutionId": "4b465bc8-8abb-4194-92cd-806a2a5d3716"
+              "_lastExecutionId": "27a46d82-2c90-4e04-851a-f0ed4b44de91"
             }
           }
         ]
       },
       {
-        "id": "59671eb3-0cc1-431b-b0e5-dcabbb8d58c5",
+        "id": "f7ab01d8-f308-48cc-86a8-b6a5d9b83beb",
         "name": "11 Create product",
         "request": {
           "url": {
@@ -453,7 +453,7 @@
           {
             "listen": "test",
             "script": {
-              "id": "9185246c-f70d-4b9d-b0e2-a150df8502bf",
+              "id": "60396e92-d45e-4cdd-987b-afd50674b802",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
@@ -461,13 +461,13 @@
                 "pm.environment.set('productId', pm.response.json()._id);",
                 "pm.test('Product created', () => pm.expect(pm.response.json().price).to.eql(45.5));"
               ],
-              "_lastExecutionId": "ee2fc637-85a7-4063-bb15-f8b025c087c1"
+              "_lastExecutionId": "b8f0078a-ed97-42a7-9472-e39063729db9"
             }
           }
         ]
       },
       {
-        "id": "b8ddc7b2-17c0-407f-9570-df798fccf0c5",
+        "id": "c733a7cc-ba6c-410d-bf99-6862b2f5d28b",
         "name": "12 List products",
         "request": {
           "url": {
@@ -488,20 +488,20 @@
           {
             "listen": "test",
             "script": {
-              "id": "9f76a77f-2a16-4e3a-8d98-ce177523e326",
+              "id": "4bec9bf7-4b99-44bb-bdcb-fda1aa4c02fc",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);",
                 "pm.test('Created product listed', () => pm.expect(pm.response.json().some(x => x._id === pm.environment.get('productId'))).to.be.true);"
               ],
-              "_lastExecutionId": "13bc52c1-08a4-4c82-b5c4-04d215e54730"
+              "_lastExecutionId": "d5165a92-9405-491b-8a88-f5822064322d"
             }
           }
         ]
       },
       {
-        "id": "d664da6f-e7bc-48a9-aefc-d9082bc7ef6c",
+        "id": "81d5ef26-98dc-4a89-8155-e4b561b7d297",
         "name": "13 Read product by ID",
         "request": {
           "url": {
@@ -523,19 +523,19 @@
           {
             "listen": "test",
             "script": {
-              "id": "b10c844f-2eb9-46cf-950d-34779b102038",
+              "id": "f3e0b61f-5a8c-4091-8588-80c71b7faf2a",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);"
               ],
-              "_lastExecutionId": "e60e4bab-e437-40f6-9ea5-1a8b43e03c50"
+              "_lastExecutionId": "c7ad4a7f-784d-428c-a1af-e22a95522991"
             }
           }
         ]
       },
       {
-        "id": "76738024-2274-4558-8aa4-1a1fa56920fd",
+        "id": "fd361f64-63c8-4e93-b12e-5336b9d679c0",
         "name": "14 Update product",
         "request": {
           "url": {
@@ -572,20 +572,20 @@
           {
             "listen": "test",
             "script": {
-              "id": "ee6b1f8b-596e-4425-864c-4bb594addafd",
+              "id": "118dc1eb-995e-4887-86cb-626c7a362280",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);",
                 "pm.test('Product updated', () => pm.expect(pm.response.json().stock).to.eql(8));"
               ],
-              "_lastExecutionId": "1d480d2c-e92a-4bb4-8a97-9dd9765320a0"
+              "_lastExecutionId": "3b52b617-cb91-41c6-bf21-b3310a413b73"
             }
           }
         ]
       },
       {
-        "id": "ad9ab35a-4d7c-460c-b923-63eaa0a08c85",
+        "id": "374b573d-6ae0-43f5-9a83-f4713a1c1b55",
         "name": "15 Confirm stored product update",
         "request": {
           "url": {
@@ -607,20 +607,20 @@
           {
             "listen": "test",
             "script": {
-              "id": "8e03afc0-ed2f-4803-bae6-fec0dcd06d5b",
+              "id": "4792889c-35ed-4912-83fa-ae3b84303ff5",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);",
                 "pm.test('Update persisted', () => pm.expect(pm.response.json().price).to.eql(50));"
               ],
-              "_lastExecutionId": "6c01bb59-ad03-40d8-88b2-45efab4c4b03"
+              "_lastExecutionId": "3765bd32-4916-4b7f-b816-37fed34d6f6d"
             }
           }
         ]
       },
       {
-        "id": "25aaee14-5cc8-45c4-8c55-4c7436045a30",
+        "id": "8c29ec22-a8f4-4fbb-93fd-c0f150331be1",
         "name": "16 Reject negative price",
         "request": {
           "url": {
@@ -656,19 +656,19 @@
           {
             "listen": "test",
             "script": {
-              "id": "eab3b41b-02c5-4add-8995-691e907f8e35",
+              "id": "046a6437-3856-4a0e-a554-49c4d1362ca2",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
                 "pm.test('JSON response', () => pm.response.to.be.json);"
               ],
-              "_lastExecutionId": "f7529540-263c-4808-8160-73e68aabd33d"
+              "_lastExecutionId": "70e5bd98-5388-4cf8-b343-ea839d2ca257"
             }
           }
         ]
       },
       {
-        "id": "79d5047e-e033-406b-9b2a-cbe7b49ad31b",
+        "id": "66f14207-4e89-4e75-a576-e6c516cbd034",
         "name": "17 Delete product",
         "request": {
           "url": {
@@ -690,19 +690,19 @@
           {
             "listen": "test",
             "script": {
-              "id": "de7d6f4a-2c26-42a2-8cfa-901e529b37c5",
+              "id": "3b265414-2d99-4220-b1cb-f5209e81714b",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                 "pm.test('JSON response', () => pm.response.to.be.json);"
               ],
-              "_lastExecutionId": "01d97524-f420-46c0-9921-9f32d071b17d"
+              "_lastExecutionId": "32d664f4-7acd-4095-bb79-079a9f844c3d"
             }
           }
         ]
       },
       {
-        "id": "89b60a2e-d64c-4f0d-8d83-baf313465b55",
+        "id": "78f8084f-f84f-4d0f-b705-434fd46de6fb",
         "name": "18 Confirm product deleted",
         "request": {
           "url": {
@@ -724,19 +724,19 @@
           {
             "listen": "test",
             "script": {
-              "id": "dfdb1327-e38f-43ff-ab36-22c7b1c67964",
+              "id": "dc49ab0e-02a1-4729-8c16-36f09b4f669b",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 404', () => pm.response.to.have.status(404));",
                 "pm.test('JSON response', () => pm.response.to.be.json);"
               ],
-              "_lastExecutionId": "d276c98d-8012-4a96-8dc2-10dde22807d3"
+              "_lastExecutionId": "1ecf62ee-b648-41c0-87db-3aeed26290aa"
             }
           }
         ]
       },
       {
-        "id": "456b73d4-8d73-4161-9a77-eab978c78d3c",
+        "id": "ad728a61-510f-4eea-bf72-40f487611622",
         "name": "19 Reject malformed ID",
         "request": {
           "url": {
@@ -758,19 +758,19 @@
           {
             "listen": "test",
             "script": {
-              "id": "974fb19e-9663-4254-89e4-9d3bac710309",
+              "id": "5243ea58-72db-45dc-a815-2fd8f7e3bd0f",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
                 "pm.test('JSON response', () => pm.response.to.be.json);"
               ],
-              "_lastExecutionId": "625aaef6-df45-4a14-95df-98829db1bf57"
+              "_lastExecutionId": "e3550a7b-6087-4856-8f9c-ac11c82f3730"
             }
           }
         ]
       },
       {
-        "id": "160e913a-f9fa-413a-8284-89a2eafd6dfe",
+        "id": "6fd11a35-cdea-4ff0-9808-e2311db3ae12",
         "name": "20 Reject unknown route",
         "request": {
           "url": {
@@ -791,13 +791,13 @@
           {
             "listen": "test",
             "script": {
-              "id": "aa6b6b02-204e-4a68-b053-71e33de32cc4",
+              "id": "4455476b-298c-4ee6-a553-1d5ae0cff181",
               "type": "text/javascript",
               "exec": [
                 "pm.test('HTTP 404', () => pm.response.to.have.status(404));",
                 "pm.test('JSON response', () => pm.response.to.be.json);"
               ],
-              "_lastExecutionId": "9e1866af-e089-410a-ae40-658a1acbf54c"
+              "_lastExecutionId": "5146294f-c2da-420a-ba3d-200976617393"
             }
           }
         ]
@@ -806,7 +806,7 @@
     "event": [],
     "variable": [],
     "info": {
-      "_postman_id": "98e4caf9-88fc-4b78-aaef-68c19ea71271",
+      "_postman_id": "959aaf8a-d0e2-4283-a2c3-125a51c2f9c3",
       "name": "Phase 2 Backend API",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
       "description": {
@@ -819,7 +819,7 @@
     "_": {
       "postman_variable_scope": "environment"
     },
-    "id": "b53f8dc4-95cd-4bdd-937a-37f33a3de147",
+    "id": "db21573a-3ede-4854-b28f-2eed44768cff",
     "name": "Phase 2 Local",
     "values": [
       {
@@ -829,23 +829,23 @@
       },
       {
         "type": "any",
-        "value": "1794556089679",
+        "value": "1794560972836",
         "key": "runId"
       },
       {
         "type": "any",
-        "value": "6af6c0b9901d94461bd57a6b",
+        "value": "6af6d3cc02ce658be0889db0",
         "key": "userId"
       },
       {
         "type": "any",
-        "value": "6af6c0ba901d94461bd57a6d",
+        "value": "6af6d3cd02ce658be0889db2",
         "key": "productId"
       }
     ]
   },
   "globals": {
-    "id": "9078d4fd-d2b4-41f1-80bd-8b7fe6ddd16f",
+    "id": "73f6b16c-9892-44a0-ac74-991690f0f242",
     "values": []
   },
   "run": {
@@ -897,10 +897,10 @@
       }
     },
     "timings": {
-      "responseAverage": 26.65,
-      "responseMin": 3,
-      "responseMax": 137,
-      "responseSd": 39.797330312471956,
+      "responseAverage": 9.15,
+      "responseMin": 2,
+      "responseMax": 46,
+      "responseSd": 11.710145174164149,
       "dnsAverage": 0,
       "dnsMin": 0,
       "dnsMax": 0,
@@ -909,8 +909,8 @@
       "firstByteMin": 0,
       "firstByteMax": 0,
       "firstByteSd": 0,
-      "started": 1794556089370,
-      "completed": 1794556091792
+      "started": 1794560972685,
+      "completed": 1794560974585
     },
     "executions": [
       {
@@ -923,11 +923,11 @@
           "eof": false,
           "bof": true,
           "cr": false,
-          "ref": "2092a889-21d5-4131-a87a-9a10eba3bc43",
-          "httpRequestId": "4a5faaef-f735-4298-8e1d-5ec909043e17"
+          "ref": "ee41d089-95c2-4285-a37a-004ae125d878",
+          "httpRequestId": "6b898ca7-c971-4329-95fe-3fc6e7fd0a22"
         },
         "item": {
-          "id": "a227f3d8-1aee-4065-8d65-ad33278cffb0",
+          "id": "0f966458-99c2-4630-b3f6-2faab8eb03cb",
           "name": "01 Database health",
           "request": {
             "url": {
@@ -948,14 +948,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "20ff8001-38bb-4914-af60-e0f1dbc0dde1",
+                "id": "60d8f612-5e92-4478-b82f-3577e008dbe2",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);",
                   "pm.test('MongoDB connected', () => pm.expect(pm.response.json().database).to.eql('connected'));"
                 ],
-                "_lastExecutionId": "1c7b685f-55d7-474d-b263-30b6eaf36596"
+                "_lastExecutionId": "fcf417fe-4201-4e7d-b14a-867a0e8a3b81"
               }
             }
           ]
@@ -995,7 +995,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "92b96197-418e-4011-855c-38801cca336c",
+              "value": "794bac33-cbd1-425a-bbab-1a1e36bb1d84",
               "system": true
             },
             {
@@ -1017,7 +1017,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "099bc0cd-7133-46e9-866b-f0377234f3bf",
+          "id": "3be3aa85-4410-4c3f-b455-8b1ba5ca1da7",
           "status": "OK",
           "code": 200,
           "header": [
@@ -1043,7 +1043,7 @@
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:09 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:32 GMT"
             },
             {
               "key": "Connection",
@@ -1098,10 +1098,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 137,
+          "responseTime": 25,
           "responseSize": 38
         },
-        "id": "a227f3d8-1aee-4065-8d65-ad33278cffb0",
+        "id": "0f966458-99c2-4630-b3f6-2faab8eb03cb",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -1119,15 +1119,15 @@
       },
       {
         "cursor": {
-          "ref": "8e4693d6-c867-4ee6-9e33-2ea4e63a9b49",
+          "ref": "81b8498e-9c65-419a-a049-6585bbdce2ab",
           "length": 20,
           "cycles": 1,
           "position": 1,
           "iteration": 0,
-          "httpRequestId": "baf70c37-e997-4fbd-aca5-6d03b6212dc9"
+          "httpRequestId": "4c52b9bc-0b1e-4672-b03a-a5fe88e20320"
         },
         "item": {
-          "id": "e00fb58e-5de9-47e5-8f0e-055c70ba7c05",
+          "id": "81ad69f4-3082-484a-8001-57032102f0dc",
           "name": "02 Create user",
           "request": {
             "url": {
@@ -1163,18 +1163,18 @@
             {
               "listen": "prerequest",
               "script": {
-                "id": "b542a50f-ed56-42fa-b9fe-078fe3453113",
+                "id": "33de8167-78da-413f-8222-875d40f28f7a",
                 "type": "text/javascript",
                 "exec": [
                   "pm.environment.set('runId', Date.now().toString());"
                 ],
-                "_lastExecutionId": "cf6525cf-7253-4189-88e7-a76e83dfdf62"
+                "_lastExecutionId": "e983e1fe-3fa6-4dfe-8a11-a6028996e187"
               }
             },
             {
               "listen": "test",
               "script": {
-                "id": "589f984a-f181-48b2-b31f-4bd27609ab7d",
+                "id": "fdd2ce03-4edb-4ca2-a4de-c354f9b3de0b",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
@@ -1183,7 +1183,7 @@
                   "pm.test('User created', () => pm.expect(pm.response.json().name).to.eql('API Lab User'));",
                   "pm.test('Password hidden', () => pm.expect(pm.response.json()).not.to.have.property('password'));"
                 ],
-                "_lastExecutionId": "cb100a96-d756-47ef-9c35-1a03cb863b0f"
+                "_lastExecutionId": "8f554312-e4a8-4809-9124-e3ba333a01eb"
               }
             }
           ]
@@ -1227,7 +1227,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "f179530b-388a-4ffe-8b1c-37143dcefcfb",
+              "value": "f26324aa-5beb-445e-b57e-058e7b3dda39",
               "system": true
             },
             {
@@ -1254,7 +1254,7 @@
           "method": "POST",
           "body": {
             "mode": "raw",
-            "raw": "{\n  \"name\": \"API Lab User\",\n  \"email\": \"lab.user.1794556089679@example.test\",\n  \"password\": \"LabPass123!\",\n  \"role\": \"user\"\n}",
+            "raw": "{\n  \"name\": \"API Lab User\",\n  \"email\": \"lab.user.1794560972836@example.test\",\n  \"password\": \"LabPass123!\",\n  \"role\": \"user\"\n}",
             "options": {
               "raw": {
                 "language": "json"
@@ -1263,7 +1263,7 @@
           }
         },
         "response": {
-          "id": "c01da660-58a2-4c1c-82b3-cd1c9526ae82",
+          "id": "f73b4dbd-a0a3-41b8-9a9c-ed2b98360393",
           "status": "Created",
           "code": 201,
           "header": [
@@ -1285,11 +1285,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"c2-wEeoiSYi3dWuePP+3GxqUlXK9gk\""
+              "value": "W/\"c2-j+q7ezYMDizSxf/OcXiiH/9RhoQ\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:09 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:32 GMT"
             },
             {
               "key": "Connection",
@@ -1349,14 +1349,14 @@
               57,
               52,
               53,
-              53,
               54,
               48,
-              56,
               57,
-              54,
               55,
-              57,
+              50,
+              56,
+              51,
+              54,
               64,
               101,
               120,
@@ -1397,26 +1397,26 @@
               97,
               102,
               54,
+              100,
+              51,
+              99,
               99,
               48,
-              98,
-              57,
-              57,
-              48,
-              49,
-              100,
-              57,
-              52,
-              52,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
               98,
+              101,
+              48,
+              56,
+              56,
+              57,
+              100,
+              98,
+              48,
               34,
               44,
               34,
@@ -1444,17 +1444,17 @@
               51,
               84,
               48,
-              55,
-              58,
-              52,
-              56,
+              57,
               58,
               48,
               57,
-              46,
-              56,
+              58,
+              51,
               50,
-              54,
+              46,
+              57,
+              48,
+              57,
               90,
               34,
               44,
@@ -1483,27 +1483,27 @@
               51,
               84,
               48,
-              55,
-              58,
-              52,
-              56,
+              57,
               58,
               48,
               57,
-              46,
-              56,
+              58,
+              51,
               50,
-              54,
+              46,
+              57,
+              48,
+              57,
               90,
               34,
               125
             ]
           },
           "cookie": [],
-          "responseTime": 118,
+          "responseTime": 46,
           "responseSize": 194
         },
-        "id": "e00fb58e-5de9-47e5-8f0e-055c70ba7c05",
+        "id": "81ad69f4-3082-484a-8001-57032102f0dc",
         "assertions": [
           {
             "assertion": "HTTP 201",
@@ -1525,15 +1525,15 @@
       },
       {
         "cursor": {
-          "ref": "14e5e58c-7dc7-420b-b6e5-f8028b951453",
+          "ref": "f658aa56-26a2-4e1a-aaa2-7d0232e59c51",
           "length": 20,
           "cycles": 1,
           "position": 2,
           "iteration": 0,
-          "httpRequestId": "c66cc5a7-1bd3-4110-8e74-8b5dacbe4a5c"
+          "httpRequestId": "a67b7021-38d7-4e08-aa87-2d30de246f44"
         },
         "item": {
-          "id": "9dc779f8-7428-46d3-8133-77995b486d3e",
+          "id": "1ca22b1f-a038-4782-94cf-5df61015d170",
           "name": "03 List users",
           "request": {
             "url": {
@@ -1554,14 +1554,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "37264403-f635-4548-8cf5-c52e3149e2b5",
+                "id": "3e25fae2-84c4-4a38-a304-9fc394651f0c",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);",
                   "pm.test('Created user listed', () => pm.expect(pm.response.json().some(x => x._id === pm.environment.get('userId'))).to.be.true);"
                 ],
-                "_lastExecutionId": "cb0de933-77a3-4b87-87be-421933288c28"
+                "_lastExecutionId": "577a763a-738e-44be-90e0-3d524965385a"
               }
             }
           ]
@@ -1601,7 +1601,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "3d221221-6e4d-43ae-be50-15b4b1744bbd",
+              "value": "8bb09e47-8674-4fc8-84ef-033aca874412",
               "system": true
             },
             {
@@ -1623,7 +1623,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "7aa31785-92d2-4d6c-89d7-e9ef5851a849",
+          "id": "1eb162c7-54f6-4486-a1b1-3c493bc77889",
           "status": "OK",
           "code": 200,
           "header": [
@@ -1645,11 +1645,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"c4-p0D/B6FhNkOHPzfhUw8nYffXUMU\""
+              "value": "W/\"c4-oZRkEqYMTPSDntsdM9fpVhMWKrM\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:09 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -1676,26 +1676,26 @@
               97,
               102,
               54,
+              100,
+              51,
+              99,
               99,
               48,
-              98,
-              57,
-              57,
-              48,
-              49,
-              100,
-              57,
-              52,
-              52,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
               98,
+              101,
+              48,
+              56,
+              56,
+              57,
+              100,
+              98,
+              48,
               34,
               44,
               34,
@@ -1743,14 +1743,14 @@
               57,
               52,
               53,
-              53,
               54,
               48,
-              56,
               57,
-              54,
               55,
-              57,
+              50,
+              56,
+              51,
+              54,
               64,
               101,
               120,
@@ -1805,17 +1805,17 @@
               51,
               84,
               48,
-              55,
-              58,
-              52,
-              56,
+              57,
               58,
               48,
               57,
-              46,
-              56,
+              58,
+              51,
               50,
-              54,
+              46,
+              57,
+              48,
+              57,
               90,
               34,
               44,
@@ -1844,17 +1844,17 @@
               51,
               84,
               48,
-              55,
-              58,
-              52,
-              56,
+              57,
               58,
               48,
               57,
-              46,
-              56,
+              58,
+              51,
               50,
-              54,
+              46,
+              57,
+              48,
+              57,
               90,
               34,
               125,
@@ -1862,10 +1862,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 18,
+          "responseTime": 5,
           "responseSize": 196
         },
-        "id": "9dc779f8-7428-46d3-8133-77995b486d3e",
+        "id": "1ca22b1f-a038-4782-94cf-5df61015d170",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -1883,15 +1883,15 @@
       },
       {
         "cursor": {
-          "ref": "f09bf609-ccbf-4bfe-8965-5cf7fb7385e4",
+          "ref": "3f7e4f23-82b4-4065-b8f1-8cd8c7f2288c",
           "length": 20,
           "cycles": 1,
           "position": 3,
           "iteration": 0,
-          "httpRequestId": "a1ecbc54-c648-4947-8c86-849a3d472565"
+          "httpRequestId": "88dc5640-483c-4604-8ebb-5bc4d3b9cd03"
         },
         "item": {
-          "id": "0050b7f3-52e8-4481-8138-7974af943f9a",
+          "id": "0645dcba-40f3-4c48-8472-4c04ff5d5104",
           "name": "04 Read user by ID",
           "request": {
             "url": {
@@ -1913,14 +1913,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "71c49737-6ca8-4579-b58f-3fae469ef5c2",
+                "id": "c790182e-93ef-49b3-b532-ca2422aaa179",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);",
                   "pm.test('Correct user', () => pm.expect(pm.response.json()._id).to.eql(pm.environment.get('userId')));"
                 ],
-                "_lastExecutionId": "2c4e0b4c-187e-4c20-96f1-43fa11592164"
+                "_lastExecutionId": "3a66e72a-d2f5-4251-8d02-3e9b45bbefbd"
               }
             }
           ]
@@ -1932,7 +1932,7 @@
             "path": [
               "api",
               "users",
-              "6af6c0b9901d94461bd57a6b"
+              "6af6d3cc02ce658be0889db0"
             ],
             "host": [
               "127",
@@ -1961,7 +1961,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "bbe64ad9-4d36-4fcf-ab66-f3b3ec212429",
+              "value": "7bba0714-941c-4879-8f1c-d15f13f990d9",
               "system": true
             },
             {
@@ -1983,7 +1983,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "83122077-b07e-407b-b710-275231f570fc",
+          "id": "7916e444-be20-4d34-888f-9620aca49744",
           "status": "OK",
           "code": 200,
           "header": [
@@ -2005,11 +2005,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"c2-TJe/UmWq1ZO8tq/mMsYiDFdIlWI\""
+              "value": "W/\"c2-GGX1TeChZGCekSVkq7lfeNWDc7M\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:10 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -2035,26 +2035,26 @@
               97,
               102,
               54,
+              100,
+              51,
+              99,
               99,
               48,
-              98,
-              57,
-              57,
-              48,
-              49,
-              100,
-              57,
-              52,
-              52,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
               98,
+              101,
+              48,
+              56,
+              56,
+              57,
+              100,
+              98,
+              48,
               34,
               44,
               34,
@@ -2102,14 +2102,14 @@
               57,
               52,
               53,
-              53,
               54,
               48,
-              56,
               57,
-              54,
               55,
-              57,
+              50,
+              56,
+              51,
+              54,
               64,
               101,
               120,
@@ -2164,17 +2164,17 @@
               51,
               84,
               48,
-              55,
-              58,
-              52,
-              56,
+              57,
               58,
               48,
               57,
-              46,
-              56,
+              58,
+              51,
               50,
-              54,
+              46,
+              57,
+              48,
+              57,
               90,
               34,
               44,
@@ -2203,27 +2203,27 @@
               51,
               84,
               48,
-              55,
-              58,
-              52,
-              56,
+              57,
               58,
               48,
               57,
-              46,
-              56,
+              58,
+              51,
               50,
-              54,
+              46,
+              57,
+              48,
+              57,
               90,
               34,
               125
             ]
           },
           "cookie": [],
-          "responseTime": 14,
+          "responseTime": 4,
           "responseSize": 194
         },
-        "id": "0050b7f3-52e8-4481-8138-7974af943f9a",
+        "id": "0645dcba-40f3-4c48-8472-4c04ff5d5104",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -2241,15 +2241,15 @@
       },
       {
         "cursor": {
-          "ref": "83b2f8a0-cbc7-496c-a5e6-642dbe424f4a",
+          "ref": "2c0663da-765a-4597-b512-7983d3d5eccb",
           "length": 20,
           "cycles": 1,
           "position": 4,
           "iteration": 0,
-          "httpRequestId": "76141fd1-7ce0-48bd-8d18-1c9ea56a37b5"
+          "httpRequestId": "97d6343f-ee87-4daf-8460-d87761d33f89"
         },
         "item": {
-          "id": "21e7dbe4-116d-4745-881a-68527f588436",
+          "id": "770ad278-4a02-4906-89fd-e5e02bea7241",
           "name": "05 Update user",
           "request": {
             "url": {
@@ -2286,14 +2286,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "543360ec-c1ee-42f2-9cf1-92726f3c0085",
+                "id": "d5a6437f-1094-4326-b626-3357575714da",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);",
                   "pm.test('Name updated', () => pm.expect(pm.response.json().name).to.eql('Updated Lab User'));"
                 ],
-                "_lastExecutionId": "29333eee-e8c0-476b-95aa-b039650f01c3"
+                "_lastExecutionId": "88d65d2a-9fe4-4d04-a6c0-d8a756e992d0"
               }
             }
           ]
@@ -2305,7 +2305,7 @@
             "path": [
               "api",
               "users",
-              "6af6c0b9901d94461bd57a6b"
+              "6af6d3cc02ce658be0889db0"
             ],
             "host": [
               "127",
@@ -2338,7 +2338,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "868bee11-d39a-4aa1-a215-c4137025949d",
+              "value": "6a35d9a8-55eb-4172-80f3-1996c271fc92",
               "system": true
             },
             {
@@ -2374,7 +2374,7 @@
           }
         },
         "response": {
-          "id": "8a5ac158-d2b1-4704-bca3-8a682adbe2ea",
+          "id": "ba93cf6e-7037-46cf-8a96-5aa736a0c1a7",
           "status": "OK",
           "code": 200,
           "header": [
@@ -2396,11 +2396,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"c6-GcC2Hy3ZC2z6/Env6blofI2l5Vc\""
+              "value": "W/\"c6-5BSEq87b9/cHgbu7aA++YnuC9fA\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:10 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -2426,26 +2426,26 @@
               97,
               102,
               54,
+              100,
+              51,
+              99,
               99,
               48,
-              98,
-              57,
-              57,
-              48,
-              49,
-              100,
-              57,
-              52,
-              52,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
               98,
+              101,
+              48,
+              56,
+              56,
+              57,
+              100,
+              98,
+              48,
               34,
               44,
               34,
@@ -2497,14 +2497,14 @@
               57,
               52,
               53,
-              53,
               54,
               48,
-              56,
               57,
-              54,
               55,
-              57,
+              50,
+              56,
+              51,
+              54,
               64,
               101,
               120,
@@ -2559,17 +2559,17 @@
               51,
               84,
               48,
-              55,
-              58,
-              52,
-              56,
+              57,
               58,
               48,
               57,
-              46,
-              56,
+              58,
+              51,
               50,
-              54,
+              46,
+              57,
+              48,
+              57,
               90,
               34,
               44,
@@ -2598,27 +2598,27 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
               48,
+              57,
+              58,
+              51,
+              51,
               46,
-              50,
-              48,
-              50,
+              49,
+              57,
+              53,
               90,
               34,
               125
             ]
           },
           "cookie": [],
-          "responseTime": 21,
+          "responseTime": 4,
           "responseSize": 198
         },
-        "id": "21e7dbe4-116d-4745-881a-68527f588436",
+        "id": "770ad278-4a02-4906-89fd-e5e02bea7241",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -2636,15 +2636,15 @@
       },
       {
         "cursor": {
-          "ref": "75f17234-5c14-49c5-8b98-4cf81c7d4acb",
+          "ref": "40b594a9-4357-48dd-9690-592f26b7d6d7",
           "length": 20,
           "cycles": 1,
           "position": 5,
           "iteration": 0,
-          "httpRequestId": "e3d9ec65-3ad0-4da7-99f1-0320e69a9111"
+          "httpRequestId": "a46eb4eb-020f-4b75-8396-eb6c4ce54927"
         },
         "item": {
-          "id": "f07e7037-add7-4981-86b7-e6c324611e18",
+          "id": "5cbfbefb-f6f7-42ea-98eb-6f945f09fbab",
           "name": "06 Confirm stored user update",
           "request": {
             "url": {
@@ -2666,14 +2666,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "b4295818-410b-44e5-a081-c8f42b73b507",
+                "id": "834d8817-a455-4ffa-b021-f70e7ee0d98d",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);",
                   "pm.test('Update persisted', () => pm.expect(pm.response.json().name).to.eql('Updated Lab User'));"
                 ],
-                "_lastExecutionId": "71395df5-0914-482d-862d-8f1f9577e2b3"
+                "_lastExecutionId": "3349a2e1-9a18-497f-b7a1-67ed1df5a21d"
               }
             }
           ]
@@ -2685,7 +2685,7 @@
             "path": [
               "api",
               "users",
-              "6af6c0b9901d94461bd57a6b"
+              "6af6d3cc02ce658be0889db0"
             ],
             "host": [
               "127",
@@ -2714,7 +2714,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "87a63eb5-5f80-4b9d-96ff-ff085393c5c8",
+              "value": "7de6fa7b-80f3-4074-89e3-cc06e5273143",
               "system": true
             },
             {
@@ -2736,7 +2736,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "f87eaf17-c6f3-4a22-9175-47f47a41b020",
+          "id": "5be33212-0a6c-44da-b95e-2bf01135fa0b",
           "status": "OK",
           "code": 200,
           "header": [
@@ -2758,11 +2758,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"c6-GcC2Hy3ZC2z6/Env6blofI2l5Vc\""
+              "value": "W/\"c6-5BSEq87b9/cHgbu7aA++YnuC9fA\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:10 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -2788,26 +2788,26 @@
               97,
               102,
               54,
+              100,
+              51,
+              99,
               99,
               48,
-              98,
-              57,
-              57,
-              48,
-              49,
-              100,
-              57,
-              52,
-              52,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
               98,
+              101,
+              48,
+              56,
+              56,
+              57,
+              100,
+              98,
+              48,
               34,
               44,
               34,
@@ -2859,14 +2859,14 @@
               57,
               52,
               53,
-              53,
               54,
               48,
-              56,
               57,
-              54,
               55,
-              57,
+              50,
+              56,
+              51,
+              54,
               64,
               101,
               120,
@@ -2921,17 +2921,17 @@
               51,
               84,
               48,
-              55,
-              58,
-              52,
-              56,
+              57,
               58,
               48,
               57,
-              46,
-              56,
+              58,
+              51,
               50,
-              54,
+              46,
+              57,
+              48,
+              57,
               90,
               34,
               44,
@@ -2960,27 +2960,27 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
               48,
+              57,
+              58,
+              51,
+              51,
               46,
-              50,
-              48,
-              50,
+              49,
+              57,
+              53,
               90,
               34,
               125
             ]
           },
           "cookie": [],
-          "responseTime": 11,
+          "responseTime": 3,
           "responseSize": 198
         },
-        "id": "f07e7037-add7-4981-86b7-e6c324611e18",
+        "id": "5cbfbefb-f6f7-42ea-98eb-6f945f09fbab",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -2998,15 +2998,15 @@
       },
       {
         "cursor": {
-          "ref": "3df1c771-e881-4a5e-80c3-565577276d2a",
+          "ref": "eec1ab77-b263-4421-9970-46fe64510dfc",
           "length": 20,
           "cycles": 1,
           "position": 6,
           "iteration": 0,
-          "httpRequestId": "a5bef94e-4035-42ed-b6b7-dbabeb1a2a8c"
+          "httpRequestId": "aa485a10-6ec6-437e-904c-e51b15902026"
         },
         "item": {
-          "id": "687694b5-00c0-4c7a-8d6e-5d86913d7875",
+          "id": "b3ec5027-cef5-4959-b427-8d4ffd776e19",
           "name": "07 Reject duplicate email",
           "request": {
             "url": {
@@ -3042,13 +3042,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "64d02cfa-5b24-4cb4-9d46-6fb56e6ac53d",
+                "id": "442e5b02-a681-4d8d-b60f-9ed6a6903e16",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 409', () => pm.response.to.have.status(409));",
                   "pm.test('JSON response', () => pm.response.to.be.json);"
                 ],
-                "_lastExecutionId": "98cfc9ff-7308-49fa-8ace-5244410b0aa2"
+                "_lastExecutionId": "99420f6c-199b-46a4-a52f-7c0ddf572cef"
               }
             }
           ]
@@ -3092,7 +3092,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "469047a2-e7fe-4c43-bb6e-e8f71f237267",
+              "value": "323a129e-aff0-4ff4-806d-a6468dbd5d8f",
               "system": true
             },
             {
@@ -3119,7 +3119,7 @@
           "method": "POST",
           "body": {
             "mode": "raw",
-            "raw": "{\n  \"name\": \"API Lab User\",\n  \"email\": \"lab.user.1794556089679@example.test\",\n  \"password\": \"LabPass123!\",\n  \"role\": \"user\"\n}",
+            "raw": "{\n  \"name\": \"API Lab User\",\n  \"email\": \"lab.user.1794560972836@example.test\",\n  \"password\": \"LabPass123!\",\n  \"role\": \"user\"\n}",
             "options": {
               "raw": {
                 "language": "json"
@@ -3128,7 +3128,7 @@
           }
         },
         "response": {
-          "id": "c7d9633f-3bbc-4848-8892-db9e16bfd734",
+          "id": "bda636d4-489a-4ef0-81f6-3f2a40626cab",
           "status": "Conflict",
           "code": 409,
           "header": [
@@ -3154,7 +3154,7 @@
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:10 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -3205,10 +3205,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 105,
+          "responseTime": 36,
           "responseSize": 34
         },
-        "id": "687694b5-00c0-4c7a-8d6e-5d86913d7875",
+        "id": "b3ec5027-cef5-4959-b427-8d4ffd776e19",
         "assertions": [
           {
             "assertion": "HTTP 409",
@@ -3222,15 +3222,15 @@
       },
       {
         "cursor": {
-          "ref": "e8cfeee7-5be7-4b63-b31c-31f5488e5ae5",
+          "ref": "69a2c7f6-fd18-4225-9099-bfd4d868b09d",
           "length": 20,
           "cycles": 1,
           "position": 7,
           "iteration": 0,
-          "httpRequestId": "0aeb03d5-3883-4d29-a536-3e6a0912eb76"
+          "httpRequestId": "99b02d0e-296f-4e34-ad99-7135607d6cf5"
         },
         "item": {
-          "id": "b7940e51-904a-4039-a9b9-5d668baa6a1d",
+          "id": "9c048033-34af-421e-a094-dcab1cb89b7e",
           "name": "08 Reject invalid user",
           "request": {
             "url": {
@@ -3266,13 +3266,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "10ccf5c0-3671-497c-afc6-c0e0d92c216d",
+                "id": "c5f492ab-61a4-41e7-829b-e152afb7818e",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
                   "pm.test('JSON response', () => pm.response.to.be.json);"
                 ],
-                "_lastExecutionId": "92ffb8b8-6425-4e2c-a358-67e24a7707ac"
+                "_lastExecutionId": "7803fd80-c4da-4a8c-8602-0e8ea70a50f8"
               }
             }
           ]
@@ -3316,7 +3316,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "5d06017d-54e2-4d3d-a1ef-17b43569707b",
+              "value": "d83989e3-0360-420c-95af-ecc6479185f4",
               "system": true
             },
             {
@@ -3352,7 +3352,7 @@
           }
         },
         "response": {
-          "id": "427e605e-d245-42bf-b472-e5fc6b188890",
+          "id": "e648f10f-d450-4a4b-925f-2cc5c63da85c",
           "status": "Bad Request",
           "code": 400,
           "header": [
@@ -3378,7 +3378,7 @@
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:10 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -3447,10 +3447,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 8,
+          "responseTime": 2,
           "responseSize": 52
         },
-        "id": "b7940e51-904a-4039-a9b9-5d668baa6a1d",
+        "id": "9c048033-34af-421e-a094-dcab1cb89b7e",
         "assertions": [
           {
             "assertion": "HTTP 400",
@@ -3464,15 +3464,15 @@
       },
       {
         "cursor": {
-          "ref": "874a8176-88bc-4dce-942f-09eb366edd7c",
+          "ref": "bd7e96ee-eaf0-4368-ac3d-070c57f2bb8c",
           "length": 20,
           "cycles": 1,
           "position": 8,
           "iteration": 0,
-          "httpRequestId": "f90ba45b-a831-4e2c-a9f4-e780536bc02f"
+          "httpRequestId": "1663278b-0b28-4534-b9a6-d1750ac329c0"
         },
         "item": {
-          "id": "a365b2a5-ce40-4966-b201-d3b4a871c258",
+          "id": "b61ab263-1513-43b3-9cde-d6fdaa4e1924",
           "name": "09 Delete user",
           "request": {
             "url": {
@@ -3494,14 +3494,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "80b3a8b3-67d6-493d-bcf4-2550671f0fb5",
+                "id": "ba13d9ce-3524-4d73-af98-e8a28484091a",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);",
                   "pm.test('Deletion acknowledged', () => pm.expect(pm.response.json().message).to.eql('User deleted'));"
                 ],
-                "_lastExecutionId": "e54a8507-1456-4c08-beb0-2b584232cacb"
+                "_lastExecutionId": "16acf4c3-bd92-45e4-8b29-1fda8028a4fb"
               }
             }
           ]
@@ -3513,7 +3513,7 @@
             "path": [
               "api",
               "users",
-              "6af6c0b9901d94461bd57a6b"
+              "6af6d3cc02ce658be0889db0"
             ],
             "host": [
               "127",
@@ -3542,7 +3542,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "e0f00916-eec9-4237-a700-63a199f38ae0",
+              "value": "7f1d650e-31f5-4dec-8c74-0681d550c631",
               "system": true
             },
             {
@@ -3564,7 +3564,7 @@
           "method": "DELETE"
         },
         "response": {
-          "id": "26b3440c-a4b8-49b0-9876-643d8490ba61",
+          "id": "528b2a3e-0351-4047-80c1-84aa98b03480",
           "status": "OK",
           "code": 200,
           "header": [
@@ -3586,11 +3586,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"3a-1CLqjWW3o9rPgwEZ1YS5F+DAfjY\""
+              "value": "W/\"3a-BBOXEfdzaDdczIxkDy3hfkGpGN8\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:10 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -3640,35 +3640,35 @@
               97,
               102,
               54,
+              100,
+              51,
+              99,
               99,
               48,
-              98,
-              57,
-              57,
-              48,
-              49,
-              100,
-              57,
-              52,
-              52,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
               98,
+              101,
+              48,
+              56,
+              56,
+              57,
+              100,
+              98,
+              48,
               34,
               125
             ]
           },
           "cookie": [],
-          "responseTime": 8,
+          "responseTime": 4,
           "responseSize": 58
         },
-        "id": "a365b2a5-ce40-4966-b201-d3b4a871c258",
+        "id": "b61ab263-1513-43b3-9cde-d6fdaa4e1924",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -3686,15 +3686,15 @@
       },
       {
         "cursor": {
-          "ref": "e24cf4f1-c5a8-4c32-af51-ac2a722b93d6",
+          "ref": "d9d10daf-c3cb-428d-b241-fcdc1a394ff9",
           "length": 20,
           "cycles": 1,
           "position": 9,
           "iteration": 0,
-          "httpRequestId": "4f363b16-9808-43fe-95e8-d37a04a31e6c"
+          "httpRequestId": "d7e5d688-7bcc-44ee-bde8-3993a0faa4d2"
         },
         "item": {
-          "id": "6571c64e-2261-44a7-a529-56d2f01be49b",
+          "id": "6d2c338b-3842-45ac-a787-15a8cd92077b",
           "name": "10 Confirm user deleted",
           "request": {
             "url": {
@@ -3716,13 +3716,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "ef798835-9aa5-4afe-baaa-3597a5ac1c20",
+                "id": "0ed1311c-fb18-48a8-8091-54be60883ef4",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 404', () => pm.response.to.have.status(404));",
                   "pm.test('JSON response', () => pm.response.to.be.json);"
                 ],
-                "_lastExecutionId": "4b465bc8-8abb-4194-92cd-806a2a5d3716"
+                "_lastExecutionId": "27a46d82-2c90-4e04-851a-f0ed4b44de91"
               }
             }
           ]
@@ -3734,7 +3734,7 @@
             "path": [
               "api",
               "users",
-              "6af6c0b9901d94461bd57a6b"
+              "6af6d3cc02ce658be0889db0"
             ],
             "host": [
               "127",
@@ -3763,7 +3763,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "0c5166e3-a8b6-4ef6-bf6b-4949af318d6b",
+              "value": "22a28226-37cf-42a0-8a7f-8aabf191b70f",
               "system": true
             },
             {
@@ -3785,7 +3785,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "0c10b4ad-044e-42c2-bdae-a04b9132841d",
+          "id": "1b020fed-5d85-4d25-aa67-288738be87fc",
           "status": "Not Found",
           "code": 404,
           "header": [
@@ -3811,7 +3811,7 @@
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:10 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -3856,10 +3856,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 10,
+          "responseTime": 4,
           "responseSize": 28
         },
-        "id": "6571c64e-2261-44a7-a529-56d2f01be49b",
+        "id": "6d2c338b-3842-45ac-a787-15a8cd92077b",
         "assertions": [
           {
             "assertion": "HTTP 404",
@@ -3873,15 +3873,15 @@
       },
       {
         "cursor": {
-          "ref": "3c5b7db6-56cb-4650-bfa4-4f7f7d2b2707",
+          "ref": "88af4ef5-4d40-4795-9f7f-3a99685dcd88",
           "length": 20,
           "cycles": 1,
           "position": 10,
           "iteration": 0,
-          "httpRequestId": "e68fbed6-d8ea-41b9-9a87-99c5c35631a2"
+          "httpRequestId": "ed4a28e9-189c-42ac-98e1-6fefdb310996"
         },
         "item": {
-          "id": "59671eb3-0cc1-431b-b0e5-dcabbb8d58c5",
+          "id": "f7ab01d8-f308-48cc-86a8-b6a5d9b83beb",
           "name": "11 Create product",
           "request": {
             "url": {
@@ -3917,7 +3917,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "9185246c-f70d-4b9d-b0e2-a150df8502bf",
+                "id": "60396e92-d45e-4cdd-987b-afd50674b802",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
@@ -3925,7 +3925,7 @@
                   "pm.environment.set('productId', pm.response.json()._id);",
                   "pm.test('Product created', () => pm.expect(pm.response.json().price).to.eql(45.5));"
                 ],
-                "_lastExecutionId": "ee2fc637-85a7-4063-bb15-f8b025c087c1"
+                "_lastExecutionId": "b8f0078a-ed97-42a7-9472-e39063729db9"
               }
             }
           ]
@@ -3969,7 +3969,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "ebcaa07a-dcdd-463c-b2c4-68218f967da3",
+              "value": "c96eea54-3a45-49e4-814c-dc824d55fd32",
               "system": true
             },
             {
@@ -4005,7 +4005,7 @@
           }
         },
         "response": {
-          "id": "303e2fae-1b1b-44e3-8898-24b197b2f077",
+          "id": "e5825a49-fa2d-44c6-87eb-91b4a26d4dfc",
           "status": "Created",
           "code": 201,
           "header": [
@@ -4027,11 +4027,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"c9-X/MH1MazUWOXa8ZqwuJU2pkPSYM\""
+              "value": "W/\"c9-vPJtezQi7yHUJ4VjMqScghL8LBA\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:10 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -4138,26 +4138,26 @@
               97,
               102,
               54,
+              100,
+              51,
               99,
-              48,
-              98,
-              97,
-              57,
-              48,
-              49,
               100,
-              57,
-              52,
-              52,
+              48,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
+              98,
+              101,
+              48,
+              56,
+              56,
+              57,
               100,
+              98,
+              50,
               34,
               44,
               34,
@@ -4185,17 +4185,17 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
               48,
+              57,
+              58,
+              51,
+              51,
               46,
-              56,
-              52,
-              53,
+              55,
+              54,
+              49,
               90,
               34,
               44,
@@ -4224,17 +4224,17 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
               48,
+              57,
+              58,
+              51,
+              51,
               46,
-              56,
-              52,
-              53,
+              55,
+              54,
+              49,
               90,
               34,
               44,
@@ -4249,10 +4249,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 13,
+          "responseTime": 4,
           "responseSize": 201
         },
-        "id": "59671eb3-0cc1-431b-b0e5-dcabbb8d58c5",
+        "id": "f7ab01d8-f308-48cc-86a8-b6a5d9b83beb",
         "assertions": [
           {
             "assertion": "HTTP 201",
@@ -4270,15 +4270,15 @@
       },
       {
         "cursor": {
-          "ref": "d353b24a-e918-40a9-adef-1876637cdbac",
+          "ref": "883578da-52d8-4036-9f81-c13cf8ec61f2",
           "length": 20,
           "cycles": 1,
           "position": 11,
           "iteration": 0,
-          "httpRequestId": "efff382d-6489-4fde-b6e9-6c205015993a"
+          "httpRequestId": "947d2fed-ed85-4f0a-8dc7-2982be082944"
         },
         "item": {
-          "id": "b8ddc7b2-17c0-407f-9570-df798fccf0c5",
+          "id": "c733a7cc-ba6c-410d-bf99-6862b2f5d28b",
           "name": "12 List products",
           "request": {
             "url": {
@@ -4299,14 +4299,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "9f76a77f-2a16-4e3a-8d98-ce177523e326",
+                "id": "4bec9bf7-4b99-44bb-bdcb-fda1aa4c02fc",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);",
                   "pm.test('Created product listed', () => pm.expect(pm.response.json().some(x => x._id === pm.environment.get('productId'))).to.be.true);"
                 ],
-                "_lastExecutionId": "13bc52c1-08a4-4c82-b5c4-04d215e54730"
+                "_lastExecutionId": "d5165a92-9405-491b-8a88-f5822064322d"
               }
             }
           ]
@@ -4346,7 +4346,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "72fb5348-600a-4ee7-bd7a-8a17d4c6a6d1",
+              "value": "be370ae5-7ad1-4ff8-ae3f-a7ff34bb289e",
               "system": true
             },
             {
@@ -4368,7 +4368,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "b6fd7f2c-60ba-4248-ab0a-5f1c4497c36d",
+          "id": "57218dd7-b830-4d8a-930c-8ecbfe324a67",
           "status": "OK",
           "code": 200,
           "header": [
@@ -4390,11 +4390,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"cb-JgiQhQNgItBoEXF9OxOz3x6VOa8\""
+              "value": "W/\"cb-uJxAI/nDANUZZSTBgFag48drmyY\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:10 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -4421,26 +4421,26 @@
               97,
               102,
               54,
+              100,
+              51,
               99,
-              48,
-              98,
-              97,
-              57,
-              48,
-              49,
               100,
-              57,
-              52,
-              52,
+              48,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
+              98,
+              101,
+              48,
+              56,
+              56,
+              57,
               100,
+              98,
+              50,
               34,
               44,
               34,
@@ -4549,17 +4549,17 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
               48,
+              57,
+              58,
+              51,
+              51,
               46,
-              56,
-              52,
-              53,
+              55,
+              54,
+              49,
               90,
               34,
               44,
@@ -4588,17 +4588,17 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
               48,
+              57,
+              58,
+              51,
+              51,
               46,
-              56,
-              52,
-              53,
+              55,
+              54,
+              49,
               90,
               34,
               44,
@@ -4614,10 +4614,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 9,
+          "responseTime": 3,
           "responseSize": 203
         },
-        "id": "b8ddc7b2-17c0-407f-9570-df798fccf0c5",
+        "id": "c733a7cc-ba6c-410d-bf99-6862b2f5d28b",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -4635,15 +4635,15 @@
       },
       {
         "cursor": {
-          "ref": "11caca53-48c7-4188-8d6b-0aecbcf51e43",
+          "ref": "e9b453f3-baf5-490e-a22d-527743844ee4",
           "length": 20,
           "cycles": 1,
           "position": 12,
           "iteration": 0,
-          "httpRequestId": "a030905e-fda6-4ded-9f63-0dd2a78ad8a0"
+          "httpRequestId": "5b20267e-c667-45e6-abd0-d3d743e20cbc"
         },
         "item": {
-          "id": "d664da6f-e7bc-48a9-aefc-d9082bc7ef6c",
+          "id": "81d5ef26-98dc-4a89-8155-e4b561b7d297",
           "name": "13 Read product by ID",
           "request": {
             "url": {
@@ -4665,13 +4665,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "b10c844f-2eb9-46cf-950d-34779b102038",
+                "id": "f3e0b61f-5a8c-4091-8588-80c71b7faf2a",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);"
                 ],
-                "_lastExecutionId": "e60e4bab-e437-40f6-9ea5-1a8b43e03c50"
+                "_lastExecutionId": "c7ad4a7f-784d-428c-a1af-e22a95522991"
               }
             }
           ]
@@ -4683,7 +4683,7 @@
             "path": [
               "api",
               "products",
-              "6af6c0ba901d94461bd57a6d"
+              "6af6d3cd02ce658be0889db2"
             ],
             "host": [
               "127",
@@ -4712,7 +4712,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "24bbde9a-777e-44ea-978a-53252570f2f2",
+              "value": "ad87b32f-5ea3-490e-b29c-6e93a6cfc2b9",
               "system": true
             },
             {
@@ -4734,7 +4734,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "000967de-ea85-4ea0-b1cb-f80ee41d5a2a",
+          "id": "39e3ef28-0acb-401f-af32-611012f8d011",
           "status": "OK",
           "code": 200,
           "header": [
@@ -4756,11 +4756,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"c9-amfb7PbI604N4YMVSChssdaA0oI\""
+              "value": "W/\"c9-DC6H2d46oHPpSUBf9BCkr/NjIlE\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:11 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:33 GMT"
             },
             {
               "key": "Connection",
@@ -4786,26 +4786,26 @@
               97,
               102,
               54,
+              100,
+              51,
               99,
-              48,
-              98,
-              97,
-              57,
-              48,
-              49,
               100,
-              57,
-              52,
-              52,
+              48,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
+              98,
+              101,
+              48,
+              56,
+              56,
+              57,
               100,
+              98,
+              50,
               34,
               44,
               34,
@@ -4914,17 +4914,17 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
               48,
+              57,
+              58,
+              51,
+              51,
               46,
-              56,
-              52,
-              53,
+              55,
+              54,
+              49,
               90,
               34,
               44,
@@ -4953,17 +4953,17 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
               48,
+              57,
+              58,
+              51,
+              51,
               46,
-              56,
-              52,
-              53,
+              55,
+              54,
+              49,
               90,
               34,
               44,
@@ -4978,10 +4978,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 15,
+          "responseTime": 3,
           "responseSize": 201
         },
-        "id": "d664da6f-e7bc-48a9-aefc-d9082bc7ef6c",
+        "id": "81d5ef26-98dc-4a89-8155-e4b561b7d297",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -4995,15 +4995,15 @@
       },
       {
         "cursor": {
-          "ref": "97cc42d4-3b9a-4eab-aa59-f7dd9e65d763",
+          "ref": "7b90ee82-af8c-4ef2-866b-22f911e57051",
           "length": 20,
           "cycles": 1,
           "position": 13,
           "iteration": 0,
-          "httpRequestId": "1d8595ef-e4b3-4424-a573-cd2cf91dd9ae"
+          "httpRequestId": "4b8cdf88-19e1-46d0-a1d3-c4cefdada1fc"
         },
         "item": {
-          "id": "76738024-2274-4558-8aa4-1a1fa56920fd",
+          "id": "fd361f64-63c8-4e93-b12e-5336b9d679c0",
           "name": "14 Update product",
           "request": {
             "url": {
@@ -5040,14 +5040,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "ee6b1f8b-596e-4425-864c-4bb594addafd",
+                "id": "118dc1eb-995e-4887-86cb-626c7a362280",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);",
                   "pm.test('Product updated', () => pm.expect(pm.response.json().stock).to.eql(8));"
                 ],
-                "_lastExecutionId": "1d480d2c-e92a-4bb4-8a97-9dd9765320a0"
+                "_lastExecutionId": "3b52b617-cb91-41c6-bf21-b3310a413b73"
               }
             }
           ]
@@ -5059,7 +5059,7 @@
             "path": [
               "api",
               "products",
-              "6af6c0ba901d94461bd57a6d"
+              "6af6d3cd02ce658be0889db2"
             ],
             "host": [
               "127",
@@ -5092,7 +5092,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "14d4f21c-de3a-4205-8bde-faa0231badae",
+              "value": "20ff5e62-5407-440a-a69a-4f662abc7650",
               "system": true
             },
             {
@@ -5128,7 +5128,7 @@
           }
         },
         "response": {
-          "id": "d59d89ef-3fd6-49c6-ab8b-325aa62e317f",
+          "id": "23bb1bca-d73b-4da2-924e-34a27d467368",
           "status": "OK",
           "code": 200,
           "header": [
@@ -5150,11 +5150,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"c6-EXEt7Vo2kEf3aXJhxURLhsaOMWk\""
+              "value": "W/\"c6-Et7jMcZu3GsuCUAzaxFRb8xGO9c\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:11 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:34 GMT"
             },
             {
               "key": "Connection",
@@ -5180,26 +5180,26 @@
               97,
               102,
               54,
+              100,
+              51,
               99,
-              48,
-              98,
-              97,
-              57,
-              48,
-              49,
               100,
-              57,
-              52,
-              52,
+              48,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
+              98,
+              101,
+              48,
+              56,
+              56,
+              57,
               100,
+              98,
+              50,
               34,
               44,
               34,
@@ -5305,17 +5305,17 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
               48,
+              57,
+              58,
+              51,
+              51,
               46,
-              56,
-              52,
-              53,
+              55,
+              54,
+              49,
               90,
               34,
               44,
@@ -5344,17 +5344,17 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
-              49,
-              46,
-              49,
-              54,
               48,
+              57,
+              58,
+              51,
+              52,
+              46,
+              48,
+              52,
+              54,
               90,
               34,
               44,
@@ -5369,10 +5369,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 8,
+          "responseTime": 6,
           "responseSize": 198
         },
-        "id": "76738024-2274-4558-8aa4-1a1fa56920fd",
+        "id": "fd361f64-63c8-4e93-b12e-5336b9d679c0",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -5390,15 +5390,15 @@
       },
       {
         "cursor": {
-          "ref": "c4b166f3-87c6-40d0-8150-1dceb2b8b145",
+          "ref": "2a49c177-dee4-4027-94da-7a9246025c2b",
           "length": 20,
           "cycles": 1,
           "position": 14,
           "iteration": 0,
-          "httpRequestId": "13db4ddb-f9ce-41ac-bc39-df585561a480"
+          "httpRequestId": "091381f3-8f51-457c-bc9d-a541c41f0336"
         },
         "item": {
-          "id": "ad9ab35a-4d7c-460c-b923-63eaa0a08c85",
+          "id": "374b573d-6ae0-43f5-9a83-f4713a1c1b55",
           "name": "15 Confirm stored product update",
           "request": {
             "url": {
@@ -5420,14 +5420,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "8e03afc0-ed2f-4803-bae6-fec0dcd06d5b",
+                "id": "4792889c-35ed-4912-83fa-ae3b84303ff5",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);",
                   "pm.test('Update persisted', () => pm.expect(pm.response.json().price).to.eql(50));"
                 ],
-                "_lastExecutionId": "6c01bb59-ad03-40d8-88b2-45efab4c4b03"
+                "_lastExecutionId": "3765bd32-4916-4b7f-b816-37fed34d6f6d"
               }
             }
           ]
@@ -5439,7 +5439,7 @@
             "path": [
               "api",
               "products",
-              "6af6c0ba901d94461bd57a6d"
+              "6af6d3cd02ce658be0889db2"
             ],
             "host": [
               "127",
@@ -5468,7 +5468,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "6bdbcdde-a911-40e2-bcc7-ff5e826f57c3",
+              "value": "33fdf4e9-9316-4aaa-b099-7b8919c8c9ba",
               "system": true
             },
             {
@@ -5490,7 +5490,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "db42563c-2a7b-4040-b53f-bb92b306a091",
+          "id": "de88ce1b-a42e-4569-a14a-5e262dd133ae",
           "status": "OK",
           "code": 200,
           "header": [
@@ -5512,11 +5512,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"c6-EXEt7Vo2kEf3aXJhxURLhsaOMWk\""
+              "value": "W/\"c6-Et7jMcZu3GsuCUAzaxFRb8xGO9c\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:11 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:34 GMT"
             },
             {
               "key": "Connection",
@@ -5542,26 +5542,26 @@
               97,
               102,
               54,
+              100,
+              51,
               99,
-              48,
-              98,
-              97,
-              57,
-              48,
-              49,
               100,
-              57,
-              52,
-              52,
+              48,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
+              98,
+              101,
+              48,
+              56,
+              56,
+              57,
               100,
+              98,
+              50,
               34,
               44,
               34,
@@ -5667,17 +5667,17 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
               48,
+              57,
+              58,
+              51,
+              51,
               46,
-              56,
-              52,
-              53,
+              55,
+              54,
+              49,
               90,
               34,
               44,
@@ -5706,17 +5706,17 @@
               51,
               84,
               48,
-              55,
+              57,
               58,
-              52,
-              56,
-              58,
-              49,
-              49,
-              46,
-              49,
-              54,
               48,
+              57,
+              58,
+              51,
+              52,
+              46,
+              48,
+              52,
+              54,
               90,
               34,
               44,
@@ -5731,10 +5731,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 12,
+          "responseTime": 5,
           "responseSize": 198
         },
-        "id": "ad9ab35a-4d7c-460c-b923-63eaa0a08c85",
+        "id": "374b573d-6ae0-43f5-9a83-f4713a1c1b55",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -5752,15 +5752,15 @@
       },
       {
         "cursor": {
-          "ref": "68f2adb6-5b20-42dd-aa24-419d1d595398",
+          "ref": "51758022-d1bc-4bf0-81a4-176a928a0ab8",
           "length": 20,
           "cycles": 1,
           "position": 15,
           "iteration": 0,
-          "httpRequestId": "424d5391-4572-4871-9fb5-b947c06bc28f"
+          "httpRequestId": "40191a32-1da2-4817-afcf-68605f392244"
         },
         "item": {
-          "id": "25aaee14-5cc8-45c4-8c55-4c7436045a30",
+          "id": "8c29ec22-a8f4-4fbb-93fd-c0f150331be1",
           "name": "16 Reject negative price",
           "request": {
             "url": {
@@ -5796,13 +5796,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "eab3b41b-02c5-4add-8995-691e907f8e35",
+                "id": "046a6437-3856-4a0e-a554-49c4d1362ca2",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
                   "pm.test('JSON response', () => pm.response.to.be.json);"
                 ],
-                "_lastExecutionId": "f7529540-263c-4808-8160-73e68aabd33d"
+                "_lastExecutionId": "70e5bd98-5388-4cf8-b343-ea839d2ca257"
               }
             }
           ]
@@ -5846,7 +5846,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "f3a46824-4e69-4e28-8fda-efe60663c7ad",
+              "value": "011d7bef-9849-4b23-a1c7-1ce87bad1857",
               "system": true
             },
             {
@@ -5882,7 +5882,7 @@
           }
         },
         "response": {
-          "id": "8bd82641-0d6e-4ff9-aa3b-e966ba18b3d1",
+          "id": "e5063408-24e5-4c74-bbed-33f02d691015",
           "status": "Bad Request",
           "code": 400,
           "header": [
@@ -5908,7 +5908,7 @@
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:11 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:34 GMT"
             },
             {
               "key": "Connection",
@@ -6060,10 +6060,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 4,
+          "responseTime": 5,
           "responseSize": 135
         },
-        "id": "25aaee14-5cc8-45c4-8c55-4c7436045a30",
+        "id": "8c29ec22-a8f4-4fbb-93fd-c0f150331be1",
         "assertions": [
           {
             "assertion": "HTTP 400",
@@ -6077,15 +6077,15 @@
       },
       {
         "cursor": {
-          "ref": "10dad581-d49f-4716-9b29-7eda52981524",
+          "ref": "203c6b03-c54b-49ad-a6b6-dd2d859a4144",
           "length": 20,
           "cycles": 1,
           "position": 16,
           "iteration": 0,
-          "httpRequestId": "731694fa-c65c-4aa6-b5fc-2001b63f2b5d"
+          "httpRequestId": "87cf6a55-699d-4719-9ab9-f7ab6ebcb1fa"
         },
         "item": {
-          "id": "79d5047e-e033-406b-9b2a-cbe7b49ad31b",
+          "id": "66f14207-4e89-4e75-a576-e6c516cbd034",
           "name": "17 Delete product",
           "request": {
             "url": {
@@ -6107,13 +6107,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "de7d6f4a-2c26-42a2-8cfa-901e529b37c5",
+                "id": "3b265414-2d99-4220-b1cb-f5209e81714b",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "pm.test('JSON response', () => pm.response.to.be.json);"
                 ],
-                "_lastExecutionId": "01d97524-f420-46c0-9921-9f32d071b17d"
+                "_lastExecutionId": "32d664f4-7acd-4095-bb79-079a9f844c3d"
               }
             }
           ]
@@ -6125,7 +6125,7 @@
             "path": [
               "api",
               "products",
-              "6af6c0ba901d94461bd57a6d"
+              "6af6d3cd02ce658be0889db2"
             ],
             "host": [
               "127",
@@ -6154,7 +6154,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "37fbba3a-f981-4b8f-bc65-2b381f3f5de8",
+              "value": "debc377c-430e-4232-905a-0eb60cb64614",
               "system": true
             },
             {
@@ -6176,7 +6176,7 @@
           "method": "DELETE"
         },
         "response": {
-          "id": "a02c1583-3e21-4b91-834b-29f4e1bf3ec7",
+          "id": "58c67e76-b719-4506-a7ab-3f338a17e3be",
           "status": "OK",
           "code": 200,
           "header": [
@@ -6198,11 +6198,11 @@
             },
             {
               "key": "ETag",
-              "value": "W/\"3d-Ry8O8P+tRxhXoYsyadovUxFpAY4\""
+              "value": "W/\"3d-AsRbfLCtdLlrufOMuzQDyhRAY7w\""
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:11 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:34 GMT"
             },
             {
               "key": "Connection",
@@ -6255,35 +6255,35 @@
               97,
               102,
               54,
+              100,
+              51,
               99,
-              48,
-              98,
-              97,
-              57,
-              48,
-              49,
               100,
-              57,
-              52,
-              52,
+              48,
+              50,
+              99,
+              101,
               54,
-              49,
-              98,
-              100,
               53,
-              55,
-              97,
-              54,
+              56,
+              98,
+              101,
+              48,
+              56,
+              56,
+              57,
               100,
+              98,
+              50,
               34,
               125
             ]
           },
           "cookie": [],
-          "responseTime": 10,
+          "responseTime": 6,
           "responseSize": 61
         },
-        "id": "79d5047e-e033-406b-9b2a-cbe7b49ad31b",
+        "id": "66f14207-4e89-4e75-a576-e6c516cbd034",
         "assertions": [
           {
             "assertion": "HTTP 200",
@@ -6297,15 +6297,15 @@
       },
       {
         "cursor": {
-          "ref": "23c6b149-d1e2-4a1d-9e7b-ec1dc90d782b",
+          "ref": "93c84af4-2b65-46d5-bd61-beabc171af1e",
           "length": 20,
           "cycles": 1,
           "position": 17,
           "iteration": 0,
-          "httpRequestId": "c8b9cfa1-c393-4ea0-80da-15ca254fee67"
+          "httpRequestId": "c43d0670-53f1-4403-b28a-e07e8dfabd4a"
         },
         "item": {
-          "id": "89b60a2e-d64c-4f0d-8d83-baf313465b55",
+          "id": "78f8084f-f84f-4d0f-b705-434fd46de6fb",
           "name": "18 Confirm product deleted",
           "request": {
             "url": {
@@ -6327,13 +6327,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "dfdb1327-e38f-43ff-ab36-22c7b1c67964",
+                "id": "dc49ab0e-02a1-4729-8c16-36f09b4f669b",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 404', () => pm.response.to.have.status(404));",
                   "pm.test('JSON response', () => pm.response.to.be.json);"
                 ],
-                "_lastExecutionId": "d276c98d-8012-4a96-8dc2-10dde22807d3"
+                "_lastExecutionId": "1ecf62ee-b648-41c0-87db-3aeed26290aa"
               }
             }
           ]
@@ -6345,7 +6345,7 @@
             "path": [
               "api",
               "products",
-              "6af6c0ba901d94461bd57a6d"
+              "6af6d3cd02ce658be0889db2"
             ],
             "host": [
               "127",
@@ -6374,7 +6374,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "85b139bd-dbdd-4c3e-acc6-8f13809a3850",
+              "value": "75c4e9d8-a8de-4992-a1ad-d32849fc6cfe",
               "system": true
             },
             {
@@ -6396,7 +6396,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "4b051a3b-8257-4c6a-be1d-99a1abb3e9e4",
+          "id": "0c6cf060-21c4-48bc-8aa7-7cd68f2f3b72",
           "status": "Not Found",
           "code": 404,
           "header": [
@@ -6422,7 +6422,7 @@
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:11 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:34 GMT"
             },
             {
               "key": "Connection",
@@ -6470,10 +6470,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 6,
+          "responseTime": 7,
           "responseSize": 31
         },
-        "id": "89b60a2e-d64c-4f0d-8d83-baf313465b55",
+        "id": "78f8084f-f84f-4d0f-b705-434fd46de6fb",
         "assertions": [
           {
             "assertion": "HTTP 404",
@@ -6487,15 +6487,15 @@
       },
       {
         "cursor": {
-          "ref": "ebd560dc-6e48-45f3-a05c-c430c505c76e",
+          "ref": "47d48c77-f363-4036-8af0-e08a133df701",
           "length": 20,
           "cycles": 1,
           "position": 18,
           "iteration": 0,
-          "httpRequestId": "6850177b-2e63-46cd-b6c7-04d69992b0f8"
+          "httpRequestId": "3a410096-72de-41aa-a887-7720f5339c53"
         },
         "item": {
-          "id": "456b73d4-8d73-4161-9a77-eab978c78d3c",
+          "id": "ad728a61-510f-4eea-bf72-40f487611622",
           "name": "19 Reject malformed ID",
           "request": {
             "url": {
@@ -6517,13 +6517,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "974fb19e-9663-4254-89e4-9d3bac710309",
+                "id": "5243ea58-72db-45dc-a815-2fd8f7e3bd0f",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
                   "pm.test('JSON response', () => pm.response.to.be.json);"
                 ],
-                "_lastExecutionId": "625aaef6-df45-4a14-95df-98829db1bf57"
+                "_lastExecutionId": "e3550a7b-6087-4856-8f9c-ac11c82f3730"
               }
             }
           ]
@@ -6564,7 +6564,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "9faad73c-f8ad-4904-8824-65f0a7472663",
+              "value": "78ef99ff-e3e2-4475-a961-3c39e540149c",
               "system": true
             },
             {
@@ -6586,7 +6586,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "b9476046-347a-456f-b3f8-809df527d197",
+          "id": "d626550f-eff9-4b36-a574-0630915c0387",
           "status": "Bad Request",
           "code": 400,
           "header": [
@@ -6612,7 +6612,7 @@
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:11 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:34 GMT"
             },
             {
               "key": "Connection",
@@ -6662,10 +6662,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 3,
+          "responseTime": 8,
           "responseSize": 33
         },
-        "id": "456b73d4-8d73-4161-9a77-eab978c78d3c",
+        "id": "ad728a61-510f-4eea-bf72-40f487611622",
         "assertions": [
           {
             "assertion": "HTTP 400",
@@ -6679,15 +6679,15 @@
       },
       {
         "cursor": {
-          "ref": "b34fd9b8-1c63-4f66-8933-04e01f1ee0ea",
+          "ref": "274ed234-bc4a-46ac-91f2-bd9b0d5ccbec",
           "length": 20,
           "cycles": 1,
           "position": 19,
           "iteration": 0,
-          "httpRequestId": "cc2b3540-42d7-44df-a964-24df4b3c02fc"
+          "httpRequestId": "0d67242c-1119-483b-9524-5971b06f5834"
         },
         "item": {
-          "id": "160e913a-f9fa-413a-8284-89a2eafd6dfe",
+          "id": "6fd11a35-cdea-4ff0-9808-e2311db3ae12",
           "name": "20 Reject unknown route",
           "request": {
             "url": {
@@ -6708,13 +6708,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "aa6b6b02-204e-4a68-b053-71e33de32cc4",
+                "id": "4455476b-298c-4ee6-a553-1d5ae0cff181",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('HTTP 404', () => pm.response.to.have.status(404));",
                   "pm.test('JSON response', () => pm.response.to.be.json);"
                 ],
-                "_lastExecutionId": "9e1866af-e089-410a-ae40-658a1acbf54c"
+                "_lastExecutionId": "5146294f-c2da-420a-ba3d-200976617393"
               }
             }
           ]
@@ -6754,7 +6754,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "0d2edeea-d7e2-4b1f-abab-9083d08557b4",
+              "value": "e0cb04a4-ff4e-48e0-a847-3933fea98758",
               "system": true
             },
             {
@@ -6776,7 +6776,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "2e51bccb-dca4-4d74-860e-9df6e9d3d59f",
+          "id": "1ecd9a99-5dc7-4a87-9f0a-9ef3cf24ceef",
           "status": "Not Found",
           "code": 404,
           "header": [
@@ -6802,7 +6802,7 @@
             },
             {
               "key": "Date",
-              "value": "Fri, 13 Nov 2026 07:48:11 GMT"
+              "value": "Fri, 13 Nov 2026 09:09:34 GMT"
             },
             {
               "key": "Connection",
@@ -6851,7 +6851,7 @@
           "responseTime": 3,
           "responseSize": 29
         },
-        "id": "160e913a-f9fa-413a-8284-89a2eafd6dfe",
+        "id": "6fd11a35-cdea-4ff0-9808-e2311db3ae12",
         "assertions": [
           {
             "assertion": "HTTP 404",

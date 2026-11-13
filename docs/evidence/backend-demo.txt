@@ -4,7 +4,7 @@
 
 Phase 2 Backend Demonstration
 Actual HTTP requests to http://127.0.0.1:5000
-Run time: 2026-11-13T07:54:45.004Z
+Run time: 2026-11-13T09:09:28.357Z
 
 GET /api/health
 HTTP 200
@@ -16,53 +16,53 @@ HTTP 200
 POST /api/users
 Request: {
   "name": "Demo User",
-  "email": "demo.1794556485324@example.test",
+  "email": "demo.1794560968420@example.test",
   "password": "LabPass123!",
   "role": "user"
 }
 HTTP 201
 {
   "name": "Demo User",
-  "email": "demo.1794556485324@example.test",
+  "email": "demo.1794560968420@example.test",
   "role": "user",
-  "_id": "6af6c245901d94461bd57a6f",
-  "createdAt": "2026-11-13T07:54:45.454Z",
-  "updatedAt": "2026-11-13T07:54:45.454Z"
+  "_id": "6af6d3c802ce658be0889dae",
+  "createdAt": "2026-11-13T09:09:28.478Z",
+  "updatedAt": "2026-11-13T09:09:28.478Z"
 }
 
-GET /api/users/6af6c245901d94461bd57a6f
+GET /api/users/6af6d3c802ce658be0889dae
 HTTP 200
 {
-  "_id": "6af6c245901d94461bd57a6f",
+  "_id": "6af6d3c802ce658be0889dae",
   "name": "Demo User",
-  "email": "demo.1794556485324@example.test",
+  "email": "demo.1794560968420@example.test",
   "role": "user",
-  "createdAt": "2026-11-13T07:54:45.454Z",
-  "updatedAt": "2026-11-13T07:54:45.454Z"
+  "createdAt": "2026-11-13T09:09:28.478Z",
+  "updatedAt": "2026-11-13T09:09:28.478Z"
 }
 
-PUT /api/users/6af6c245901d94461bd57a6f
+PUT /api/users/6af6d3c802ce658be0889dae
 Request: {
   "name": "Updated Demo User"
 }
 HTTP 200
 {
-  "_id": "6af6c245901d94461bd57a6f",
+  "_id": "6af6d3c802ce658be0889dae",
   "name": "Updated Demo User",
-  "email": "demo.1794556485324@example.test",
+  "email": "demo.1794560968420@example.test",
   "role": "user",
-  "createdAt": "2026-11-13T07:54:45.454Z",
-  "updatedAt": "2026-11-13T07:54:45.543Z"
+  "createdAt": "2026-11-13T09:09:28.478Z",
+  "updatedAt": "2026-11-13T09:09:28.501Z"
 }
 
-DELETE /api/users/6af6c245901d94461bd57a6f
+DELETE /api/users/6af6d3c802ce658be0889dae
 HTTP 200
 {
   "message": "User deleted",
-  "id": "6af6c245901d94461bd57a6f"
+  "id": "6af6d3c802ce658be0889dae"
 }
 
-GET /api/users/6af6c245901d94461bd57a6f
+GET /api/users/6af6d3c802ce658be0889dae
 HTTP 404
 {
   "message": "User not found"
@@ -80,50 +80,50 @@ HTTP 201
   "description": "",
   "price": 45.5,
   "stock": 10,
-  "_id": "6af6c245901d94461bd57a70",
-  "createdAt": "2026-11-13T07:54:45.609Z",
-  "updatedAt": "2026-11-13T07:54:45.609Z",
+  "_id": "6af6d3c802ce658be0889daf",
+  "createdAt": "2026-11-13T09:09:28.521Z",
+  "updatedAt": "2026-11-13T09:09:28.521Z",
   "__v": 0
 }
 
-GET /api/products/6af6c245901d94461bd57a70
+GET /api/products/6af6d3c802ce658be0889daf
 HTTP 200
 {
-  "_id": "6af6c245901d94461bd57a70",
+  "_id": "6af6d3c802ce658be0889daf",
   "name": "Demo Notebook",
   "description": "",
   "price": 45.5,
   "stock": 10,
-  "createdAt": "2026-11-13T07:54:45.609Z",
-  "updatedAt": "2026-11-13T07:54:45.609Z",
+  "createdAt": "2026-11-13T09:09:28.521Z",
+  "updatedAt": "2026-11-13T09:09:28.521Z",
   "__v": 0
 }
 
-PUT /api/products/6af6c245901d94461bd57a70
+PUT /api/products/6af6d3c802ce658be0889daf
 Request: {
   "price": 50,
   "stock": 8
 }
 HTTP 200
 {
-  "_id": "6af6c245901d94461bd57a70",
+  "_id": "6af6d3c802ce658be0889daf",
   "name": "Demo Notebook",
   "description": "",
   "price": 50,
   "stock": 8,
-  "createdAt": "2026-11-13T07:54:45.609Z",
-  "updatedAt": "2026-11-13T07:54:45.640Z",
+  "createdAt": "2026-11-13T09:09:28.521Z",
+  "updatedAt": "2026-11-13T09:09:28.534Z",
   "__v": 0
 }
 
-DELETE /api/products/6af6c245901d94461bd57a70
+DELETE /api/products/6af6d3c802ce658be0889daf
 HTTP 200
 {
   "message": "Product deleted",
-  "id": "6af6c245901d94461bd57a70"
+  "id": "6af6d3c802ce658be0889daf"
 }
 
-GET /api/products/6af6c245901d94461bd57a70
+GET /api/products/6af6d3c802ce658be0889daf
 HTTP 404
 {
   "message": "Product not found"

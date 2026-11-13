@@ -21,7 +21,11 @@ The screenshots show actual request and response results from a Postman collecti
 | postman-test-report.html | Generated interactive results report with light presentation |
 | backend-demo.txt | Actual console demonstration of user and product CRUD |
 | runtime-audit.json | Zero runtime dependency vulnerabilities reported on the test date |
+| api-screenshot-results.json | Original raw run matching the preserved API request screenshots |
+| api-screenshot-report.html | Original report used for those API screenshots |
 
 Screenshots were cropped to the relevant request sections for readability. Cropping does not change the response content. The raw Newman JSON and HTML report retain the full requests and responses. Some long JSON lines in the narrow report viewport require horizontal scrolling in the HTML report; use the original JSON or text transcript for complete values.
 
-Run `npm run test:postman` from `backend` while MongoDB and Express are running to generate a fresh report. Later runs will have new IDs and timestamps. Run `npm run demo` to demonstrate the backend directly without a frontend. All test records use fictional data and `.test` email addresses.
+The API request screenshots are retained with their original matching report and JSON results. The fresh Postman run also passed all 20 requests and 52 assertions. Its output is in `newman-results.json`, `postman-run.txt`, and `postman-test-report.html`.
+
+Run `npm run test:postman` from `backend` while MongoDB and Express are running to generate a fresh report. Later runs have new IDs and timestamps. Run `npm run demo` to show actual HTTP requests and JSON responses in the console. All test records use fictional data and `.test` email addresses.
