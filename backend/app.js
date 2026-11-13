@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('node:path');
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
@@ -18,6 +19,7 @@ app.get('/api/health', (req, res) => {
 });
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
+app.use(express.static(path.join(__dirname, '../frontend')));
 app.use(notFound);
 app.use(errorHandler);
 

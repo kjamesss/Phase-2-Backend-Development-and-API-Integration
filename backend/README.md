@@ -138,14 +138,16 @@ For Thunder Client, create a request using the same method, URL, and JSON body. 
 
 ## Frontend integration
 
+The included `../frontend` folder contains `index.html`, `styles.css`, and `app.js`. Express serves these files at `http://127.0.0.1:5000`. The page uses relative `/api/users` and `/api/products` URLs, so the frontend and API run on the same origin. No separate frontend server or build step is needed.
+
 ```javascript
 const response = await fetch('http://127.0.0.1:5000/api/products');
 if (!response.ok) throw new Error('Could not load products');
 const products = await response.json();
 ```
 
-The frontend can use the same base URL with POST, PUT, and DELETE, passing JSON bodies where needed. Set `CORS_ORIGIN` to the frontend's actual origin. CORS controls browser access and does not provide user authentication.
+The frontend sends POST to create a record, GET to list records, PUT to save edits, and DELETE after confirmation. It shows the actual status and JSON response, displays server validation errors, and reloads the list after successful changes. If a separate frontend server is used, set `CORS_ORIGIN` to its actual origin. CORS does not provide user authentication.
 
 ## Scope and maintenance
 
-This is a local coursework backend. Authentication, authorization, login sessions, deployment, and a frontend are outside this phase. The `role` field is stored data only. Keep the server on loopback until authentication and access checks are added. Newman and its HTML reporter are development tools; their upstream dependency audit findings are separate from the runtime dependency audit saved in the evidence folder.
+This local coursework application includes a frontend for demonstrating the required backend. Authentication, authorization, login sessions, and deployment are outside this submission. The `role` field is stored data only. Keep the server on loopback until authentication and access checks are added. Newman and its HTML reporter are development tools; their upstream dependency audit findings are separate from the runtime dependency audit saved in the evidence folder.
