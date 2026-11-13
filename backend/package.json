@@ -1,0 +1,36 @@
+{
+  "name": "phase2-backend-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Phase 2 Backend Development and API Integration coursework",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "serve": "node server.js",
+    "db:local": "node scripts/local-db.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "test:postman": "node scripts/run-postman.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "mongoose": "^9.12.1",
+    "nodemon": "3.1.11"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0",
+    "newman": "^6.2.3",
+    "newman-reporter-htmlextra": "^1.23.1",
+    "supertest": "^7.3.2"
+  },
+  "config": {
+    "mongodbMemoryServer": {
+      "downloadDir": "./.local-db/binaries"
+    }
+  }
+}
