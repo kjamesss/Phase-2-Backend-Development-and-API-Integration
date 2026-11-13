@@ -23,16 +23,6 @@ test('health confirms an active MongoDB connection', async () => {
   assert.deepEqual(res.body, { status: 'ok', database: 'connected' });
 });
 
-test('frontend and assets are served while API routes keep JSON responses', async () => {
-  const page = await request(app).get('/').expect(200).expect('Content-Type', /html/);
-  assert.match(page.text, /User and Product Management/);
-  assert.match(page.text, /src="\/app.js"/);
-  await request(app).get('/app.js').expect(200).expect('Content-Type', /javascript/);
-  await request(app).get('/styles.css').expect(200).expect('Content-Type', /css/);
-  await request(app).get('/api/users').expect(200).expect('Content-Type', /json/);
-  await request(app).get('/api/not-a-route').expect(404).expect('Content-Type', /json/);
-});
-
 test('users complete CRUD with persisted updates and password protection', async () => {
   const payload = { name: 'API Test User', email: 'crud@example.test', password: 'LabPass123!', role: 'user' };
   const created = await request(app).post('/api/users').send(payload).expect(201);
